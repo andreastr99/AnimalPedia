@@ -2,7 +2,7 @@
 
 Welcome to AnimalPedia – Your Online Encyclopedia of the World's Fascinating Creatures! 🐾
 
-![AnimalPedia Banner](url_to_banner_image)
+![AnimalPedia Banner](koala_banner.png) 
 
 ## Discover the Diversity of Life
 
