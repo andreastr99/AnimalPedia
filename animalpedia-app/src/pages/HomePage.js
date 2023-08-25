@@ -23,8 +23,8 @@ const HomePage = () => {
                 </div>
 
                 <div className="row mb-2 mt-2">
-                    <PreviewCard animalName={"Cheetah"} />
-                    <PreviewCard animalName={"dolphin"} />
+                    <PreviewCard animalName={"okapi"} />
+                    <PreviewCard animalName={"tarsier"} />
                 </div>
 
                 <main role="main" className="container">
@@ -46,6 +46,16 @@ const HomePage = () => {
                         <aside className="col-md-4 blog-sidebar">
                             <WeatherWidget city={"larisa"} />
 
+
+                            {/* <div className="m-3">                    
+                                <div className="ratio ratio-16x9">
+                                    <iframe
+                                        src="https://www.youtube.com/embed/5kozt0uDa4c"
+                                        title="YouTube video"
+                                        allowFullScreen
+                                    />
+                                </div>
+                            </div> */}
                             {/* <div className="p-3">
                                 <h4 className="font-italic">Archives</h4>
                                 <ol className="list-unstyled mb-0">

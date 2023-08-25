@@ -24,11 +24,11 @@ async function getForecast(req, res) {
                 feelslike_c: response.data.current.feelslike_c,
                 icon: response.data.current.condition.icon
             }
-             // Send the API response back to the client
-             await redisClient.set('weather', JSON.stringify(data));
-             redisClient.expire('weather', 3600);
+            // Send the API response back to the client
+            await redisClient.set('weather', JSON.stringify(data));
+            redisClient.expire('weather', 3600);
 
-             return res.status(200).json({
+            return res.status(200).json({
                 name: response.data.location.name,
                 localtime: response.data.location.localtime.split(" ")[1],
                 temp_c: response.data.current.temp_c,
@@ -40,7 +40,7 @@ async function getForecast(req, res) {
             });
         } catch (error) {
             console.error(error);
-            res.status(500).send('Error fetching data from the API.');
+            res.status(500).send('Error fetching data from the weather API.');
         }
     }
 }

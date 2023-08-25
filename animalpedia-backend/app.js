@@ -17,9 +17,12 @@ app.use(express.json());
 //έτσι κάνω εισαγωγή ένα route που μόλις όρισα
 const animalRoute = require('./routes/animal')
 const weatherRoute = require('./routes/weather')
+const imageRoute = require('./routes/image')
 
 app.use("/api", animalRoute);
 app.use("/api", weatherRoute);
+app.use("/api", imageRoute);
+
 app.use('*', function(req, res){
   res.status(404).send("Sorry, we can't find that!");
 });

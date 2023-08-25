@@ -24,7 +24,7 @@ async function getAnimal(req, res) {
             return res.json(response.data[0]);
         } catch (error) {
             console.error(error);
-            res.status(500).send('Error fetching data from the API.');
+            res.status(500).send('Error fetching data from the animal API.');
         }
     }
 }
