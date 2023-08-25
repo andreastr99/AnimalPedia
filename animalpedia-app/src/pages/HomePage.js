@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import PreviewCard from '../components/PreviewCard'
 import BlogPost from '../components/BlogPost'
+import WeatherWidget from '../components/WeatherWidget'
 
 import articles from './article-content'
 import forest from '../assets/forest.jpg'
@@ -42,10 +43,13 @@ const HomePage = () => {
                         </div>
 
                         <aside className="col-md-4 blog-sidebar">
-                            <div className="p-3 mb-3 bg-light rounded">
-                                <h4 className="font-italic">About</h4>
-                                <p className="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+                            <div className="">
+                                {/* <h4 className="font-italic">About</h4>
+                                <p className="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p> */}
+                                 <WeatherWidget />
                             </div>
+
+                           
 
                             <div className="p-3">
                                 <h4 className="font-italic">Archives</h4>

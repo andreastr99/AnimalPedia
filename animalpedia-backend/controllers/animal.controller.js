@@ -14,7 +14,7 @@ async function getAnimal(req, res) {
         try {
             const response = await axios.get('https://api.api-ninjas.com/v1/animals?name=' + animal_name, {
                 headers: {
-                    'X-Api-Key': process.env.API_KEY
+                    'X-Api-Key': process.env.NINJA.API_KEY
                 }
             });
 
@@ -22,8 +22,7 @@ async function getAnimal(req, res) {
             await redisClient.set(animal_name, JSON.stringify(response.data[0]));
             redisClient.expire(animal_name, 3600);
             return res.json(response.data[0]);
-        } catch (error) { 
-
+        } catch (error) {
             console.error(error);
             res.status(500).send('Error fetching data from the API.');
         }
