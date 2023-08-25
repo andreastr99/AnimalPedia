@@ -25,6 +25,7 @@ const HomePage = () => {
                 <div className="row mb-2 mt-2">
                     <PreviewCard animalName={"okapi"} />
                     <PreviewCard animalName={"tarsier"} />
+                    <PreviewCard animalName={"tapir"} />
                 </div>
 
                 <main role="main" className="container">

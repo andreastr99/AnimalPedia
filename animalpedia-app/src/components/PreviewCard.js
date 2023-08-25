@@ -47,7 +47,7 @@ const PreviewCard = ({ animalName }) => {
         //         </div>
         //     </div>
         // </div>
-        <div className="col-md-6">
+        <div className="col-md-4">
             <div className="card flex-md-row mb-4 bshadow-sm h-md-250" style={{ background: "#dacdbf" }}>
                 <div className="card-body d-flex flex-column align-items-start">
                     <strong className="d-inline-block text-success mb-2">{taxonomy.class}</strong>
