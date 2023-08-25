@@ -8,7 +8,6 @@ async function getForecast(req, res) {
 
     let redisResult = await redisClient.get('weather')
     if (redisResult) {
-        console.log("aa")
         const results = JSON.parse(redisResult);
         return res.status(200).json(results);
     } else {
@@ -17,7 +16,7 @@ async function getForecast(req, res) {
 
             const data = {
                 name: response.data.location.name,
-                localtime: response.data.location.localtime,
+                localtime: response.data.location.localtime.split(" ")[1],
                 temp_c: response.data.current.temp_c,
                 text: response.data.current.condition.text,
                 wind_kph: response.data.current.wind_kph,
@@ -31,7 +30,7 @@ async function getForecast(req, res) {
 
              return res.status(200).json({
                 name: response.data.location.name,
-                localtime: response.data.location.localtime,
+                localtime: response.data.location.localtime.split(" ")[1],
                 temp_c: response.data.current.temp_c,
                 text: response.data.current.condition.text,
                 wind_kph: response.data.current.wind_kph,

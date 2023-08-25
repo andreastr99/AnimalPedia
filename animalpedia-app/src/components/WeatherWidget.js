@@ -13,6 +13,7 @@ const WeatherWidget = ({ city }) => {
             await axiosRequests.getForecast(city)
                 .then(res => {
                     setWeather(res.data);
+                    console.log(res.data.localtime)
                 });
         };
         fetchData();
