@@ -29,24 +29,6 @@ const PreviewCard = ({ animalName }) => {
 
 
     return (
-        // <div className="col-md-6">
-        //     <div className="card mb-4 shadow-sm" style={{background: "#dacdbf"}}>            
-        //         <div className="card-body">
-        //             <strong className="text-success mb-2">{taxonomy.className}</strong>
-        //             <h3 className="mb-2">
-        //                 <a className="text-dark" href="/">{animal}</a>
-        //             </h3>
-        //             <div className="text-muted">{taxonomy.order}</div>
-        //             <p className="card-text">
-        //                 <strong>Can be found in:</strong>
-        //                 {locations.map((location, index) => (
-        //                     <span key={index}><em> {location}</em></span>
-        //                 ))}
-        //             </p>
-        //             <a href="#" className="btn btn-success btn-sm mt-auto">View Animal Card</a>
-        //         </div>
-        //     </div>
-        // </div>
         <div className="col-md-4">
             <div className="card flex-md-row mb-4 bshadow-sm h-md-250" style={{ background: "#dacdbf" }}>
                 <div className="card-body d-flex flex-column align-items-start">
