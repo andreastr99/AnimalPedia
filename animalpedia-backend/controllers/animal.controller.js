@@ -14,7 +14,7 @@ async function getAnimal(req, res) {
         try {
             const response = await axios.get('https://api.api-ninjas.com/v1/animals?name=' + animal_name, {
                 headers: {
-                    'X-Api-Key': process.env.NINJA.API_KEY
+                    'X-Api-Key': process.env.NINJA_API_KEY
                 }
             });
 

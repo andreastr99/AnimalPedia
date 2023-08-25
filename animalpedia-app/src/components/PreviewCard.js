@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import axiosRequests from '../api/animals'
+import axiosRequests from '../api/apiCalls'
 
 const PreviewCard = ({ animalName }) => {
     const [animal, setAnimal] = useState();

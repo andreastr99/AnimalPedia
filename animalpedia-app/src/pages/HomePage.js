@@ -35,10 +35,10 @@ const HomePage = () => {
 
                             <BlogPost article={articles[1]} />
 
-                            <nav className="blog-pagination">
+                            {/* <nav className="blog-pagination">
                                 <a className="btn btn-outline-primary" href="#">Older</a>
                                 <a className="btn btn-outline-secondary disabled" href="#">Newer</a>
-                            </nav>
+                            </nav> */}
 
                         </div>
 
@@ -46,12 +46,12 @@ const HomePage = () => {
                             <div className="">
                                 {/* <h4 className="font-italic">About</h4>
                                 <p className="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p> */}
-                                 <WeatherWidget />
+                                 <WeatherWidget city={"larisa"}/>
                             </div>
 
                            
 
-                            <div className="p-3">
+                            {/* <div className="p-3">
                                 <h4 className="font-italic">Archives</h4>
                                 <ol className="list-unstyled mb-0">
                                     <li><a href="#">March 2014</a></li>
@@ -76,7 +76,7 @@ const HomePage = () => {
                                     <li><a href="#">Twitter</a></li>
                                     <li><a href="#">Facebook</a></li>
                                 </ol>
-                            </div>
+                            </div> */}
                         </aside>
 
                     </div>
