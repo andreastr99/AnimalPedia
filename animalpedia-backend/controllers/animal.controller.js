@@ -6,7 +6,7 @@ redisClient.connect();
 
 async function getAnimal(req, res) {
     const animal_name = req.params.animal_name;
-    let redisResult = await redisClient.get('animal')
+    let redisResult = await redisClient.get(animal_name)
     if (redisResult) {
         const results = JSON.parse(redisResult);
         return res.status(200).json(results);
@@ -19,10 +19,11 @@ async function getAnimal(req, res) {
             });
 
             // Send the API response back to the client
-            await redisClient.set('animal', JSON.stringify(response.data[0]));
-            redisClient.expire('animal', 3600);
+            await redisClient.set(animal_name, JSON.stringify(response.data[0]));
+            redisClient.expire(animal_name, 3600);
             return res.json(response.data[0]);
-        } catch (error) {
+        } catch (error) { 
+
             console.error(error);
             res.status(500).send('Error fetching data from the API.');
         }
