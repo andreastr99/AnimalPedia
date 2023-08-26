@@ -17,11 +17,19 @@ async function getAnimal(req, res) {
                     'X-Api-Key': process.env.NINJA_API_KEY
                 }
             });
-
+            
+            const data = {
+                name: response.data[0].name,
+                class: response.data[0].taxonomy.class,
+                order: response.data[0].taxonomy.order,
+                locations:  response.data[0].locations,
+            }
+            console.log("data", data)
             // Send the API response back to the client
-            await redisClient.set(animal_name, JSON.stringify(response.data[0]));
+            await redisClient.set(animal_name, JSON.stringify(data));
             redisClient.expire(animal_name, 3600);
-            return res.json(response.data[0]);
+            // return res.json(response.data[0]);
+            return res.json(data);
         } catch (error) {
             console.error(error);
             res.status(500).send('Error fetching data from the animal API.');

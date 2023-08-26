@@ -10,14 +10,14 @@ const articles = [
             From the smallest microscopic organisms to the largest majestic mammals, the animal kingdom is 
             a testament to the wonders of life's creativity and adaptability.</p>
 
-            <h3>Diversity Beyond Imagination</h3>
+            <h2>Diversity Beyond Imagination</h2>
 
             <p>Diversity is the cornerstone of the animal kingdom. With over 1.5 million known species and 
                 potentially millions more yet to be discovered, animals occupy nearly every conceivable niche 
                 on Earth. From the depths of the oceans to the highest mountaintops, and from the hottest 
                 deserts to the coldest polar regions, animals have adapted to a stunning variety of habitats.</p>
 
-            <h3>The Hierarchy of Classification</h3>
+            <h2>The Hierarchy of Classification</h2>
 
             <p>Biologists have devised a systematic way to categorize and understand the incredible diversity within 
                 the animal kingdom. This system, known as taxonomy, groups animals based on shared characteristics and 
@@ -34,27 +34,27 @@ const articles = [
                 <li><strong>Species:</strong> The most specific level of classification, species are distinct groups of organisms that share common traits and can interbreed.</li>
             </ol>
 
-            <h3>Adaptations for Survival</h3>
+            <h2>Adaptations for Survival</h2>
 
             <p>The animal kingdom showcases an astonishing array of adaptations that have evolved over millions of years. 
                 These adaptations allow animals to survive and thrive in their unique environments. From camouflage and 
                 mimicry to specialized hunting techniques and intricate mating rituals, animals have developed a wide 
                 range of strategies to ensure their survival.</p>
 
-            <h3>Ecological Roles</h3>
+            <h2>Ecological Roles</h2>
 
             <p>Each animal within the animal kingdom plays a crucial role in its ecosystem. These roles, known as ecological niches, 
                 contribute to the delicate balance of nature. Predators control prey populations, herbivores shape plant communities, 
                 and decomposers recycle nutrients, ensuring the health and sustainability of ecosystems.</p>
 
-            <h3>Conservation and the Future</h3>
+            <h2>Conservation and the Future</h2>
 
             <p>The animal kingdom is not only a source of fascination but also a critical aspect of our planet's health. Human activities, 
                 such as habitat destruction, pollution, and climate change, threaten the delicate balance of ecosystems and endanger 
                 countless species. Conservation efforts are essential to safeguard biodiversity and ensure that future generations can 
                 continue to marvel at the beauty and complexity of the animal kingdom.</p>
 
-            <h3>Exploring the Animal Kingdom</h3>
+            <h2>Exploring the Animal Kingdom</h2>
 
             <p>In an era of advanced technology and interconnectedness, exploring the animal kingdom has never been more accessible. 
                 Platforms like <strong>AnimalPedia</strong> provide a window into the lives of diverse creatures, offering a wealth 

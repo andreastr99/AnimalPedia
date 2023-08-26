@@ -37,10 +37,10 @@ const HomePage = () => {
 
                             <BlogPost article={articles[1]} />
 
-                            <nav className="blog-pagination">
+                            {/* <nav className="blog-pagination">
                                 <a className="btn btn-outline-primary">Older</a>
                                 <a className="btn btn-outline-secondary disabled" >Newer</a>
-                            </nav>
+                            </nav> */}
 
                         </div>
 
