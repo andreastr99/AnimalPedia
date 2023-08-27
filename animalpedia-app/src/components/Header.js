@@ -23,7 +23,7 @@ const Header = () => {
 
                     <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
                         <div className="input-group">
-                            <input type="search" className="form-control form-control-dark text-bg-light" placeholder="Search..." aria-label="Search" disabled />
+                            <input type="search" className="form-control form-control-dark text-bg-light" placeholder="Search an animal..." aria-label="Search" disabled />
                             <span className="input-group-text" id="search-icon">
                                 <BiSearch />
                             </span>

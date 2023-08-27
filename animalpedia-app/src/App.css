@@ -14,3 +14,9 @@
   border-radius: 0; /* Remove border radius */
   padding: 10px 20px; /* Adjust padding as needed */
 }
+
+/* Custom CSS */
+.custom-wide-container {
+  max-width: 1400px; /* Adjust the width as needed */
+  margin: 0 auto; /* Center the container */
+}

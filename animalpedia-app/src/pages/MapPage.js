@@ -8,7 +8,7 @@ const MapPage = () => {
     return (
         <div className='text-center'>
             <Header />
-            <img className='container m-3' src={map}/>
+            <img className='container m-3' src={map} alt='world map'/>
             <Footer />
         </div>
     )

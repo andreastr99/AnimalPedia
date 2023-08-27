@@ -1,7 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import axiosRequests from '../api/apiCalls'
+import AnimalCardModal from '../components/AnimalCardModal'
 
 const PreviewCard = ({ animalName }) => {
+
+    const [showAddModal, setShowAddModal] = useState(false);
+
+    const handleShowModal = () => {
+        setShowAddModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setShowAddModal(false);
+    };
+
+
     // const [animal, setAnimal] = useState();
     const [animal, setAnimal] = useState({});
     const [taxonomy, setTaxonomy] = useState({});
@@ -17,7 +30,7 @@ const PreviewCard = ({ animalName }) => {
                 await axiosRequests.getAnimal(animalName)
                     .then(res => {
                         setAnimal(res.data)
-                        
+
                         // console.log(animal)
                         // setLocations(res.data.locations);
                         // setTaxonomy(res.data.taxonomy);
@@ -42,7 +55,7 @@ const PreviewCard = ({ animalName }) => {
         <div className="col-md-4">
             <div className="card flex-md-row mb-4 bshadow-sm h-md-250" style={{ background: "#f2f1eb" }}>
                 {loading ? (
-                    <div  className="card-body d-flex flex-column align-items-start" >
+                    <div className="card-body d-flex flex-column align-items-start" >
                         loading...
                     </div>
                 ) : (
@@ -65,7 +78,7 @@ const PreviewCard = ({ animalName }) => {
                         <div className="card-body d-flex flex-column align-items-start">
                             <strong className="d-inline-block mb-2" style={{ color: "#00704A" }}>{animal.class}</strong>
                             <h4 className="mb-0">
-                                <a className="text-dark" href="/">{animal.name}</a>
+                                <a className="text-dark" href="/">{animal.name[0]}</a>
                             </h4>
                             <div className="text-muted">{animal.order}</div>
                             <p className="card-text mb-auto"><strong>Can be found in:</strong>
@@ -73,9 +86,10 @@ const PreviewCard = ({ animalName }) => {
                                     <span key={index}><em> {location}</em></span>
                                 ))}
                             </p>
-                            <a href="/" className="btn btn-success btn-sm mt-auto">View Animal Card</a>
+                            <button onClick={handleShowModal} className="btn btn-success btn-sm mt-auto">View Animal Card</button>
+                            <AnimalCardModal showModal={showAddModal} handleClose={handleCloseModal} animalImage={`${link}`} animal={animal}/>
                         </div>
-                        <img className='card' src={`${link}`} alt='weather icon' style={{ height: "200px" }} />
+                        <img className='card' src={`${link}`} alt={animal.name} style={{  maxHeight: "200px", objectFit: "cover",  objectPosition: "center", width: "100%",}} />
                     </>
                 )}
             </div>

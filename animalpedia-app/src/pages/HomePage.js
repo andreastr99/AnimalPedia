@@ -15,7 +15,7 @@ const HomePage = () => {
     return (
         <div>
             <Header />
-            <div className='container mt-5 mb-2'>
+            <div className='container mt-5 mb-2 custom-wide-container'>
                 <div className="jumbotron p-3 p-md-5 text-dark rounded" style={{ backgroundImage: `url(${forest})`, backgroundSize: 'cover', backgroundPosition: 'center', height: "350px" }}>
                     <div className="col-md-8 px-0" >
                         <h1 className="display-4 font-italic"><em>Unveiling the Wonders of the Animal Kingdom</em></h1>
@@ -23,11 +23,12 @@ const HomePage = () => {
                 </div>
 
                 <div className="row mb-2 mt-2">
-                    <PreviewCard animalName={"okapi"} />
+                    <PreviewCard animalName={"hummingbird"} />
                     <PreviewCard animalName={"tarsier"} />
                     <PreviewCard animalName={"tapir"} />
                 </div>
 
+                
                 <main role="main" className="container">
                     <div className="row">
                         <hr />
@@ -48,7 +49,7 @@ const HomePage = () => {
                             <WeatherWidget city={"larisa"} />
 
 
-                            {/* <div className="m-3">                    
+                            <div className="m-3">                    
                                 <div className="ratio ratio-16x9">
                                     <iframe
                                         src="https://www.youtube.com/embed/5kozt0uDa4c"
@@ -56,7 +57,8 @@ const HomePage = () => {
                                         allowFullScreen
                                     />
                                 </div>
-                            </div> */}
+                            </div>
+
                             {/* <div className="p-3">
                                 <h4 className="font-italic">Archives</h4>
                                 <ol className="list-unstyled mb-0">
