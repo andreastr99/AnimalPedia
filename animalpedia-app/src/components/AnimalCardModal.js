@@ -33,17 +33,17 @@ const AnimalCardModal = ({ showModal = false, handleClose, animal, animalImage }
                             </p>
                             <ul className="list-unstyled">
                                 <li>Distinctive Trait: Recognized for its remarkable and unique attribute.</li>
-                                <li>Main Threat: Faces its most significant threat from <strong>{animal.characteristics[0].biggest_threat}</strong>.</li>
-                                <li>Life Expectancy: Typically lives an average of <strong>{animal.characteristics[0].lifespan}</strong>.</li>
-                                <li>Habitat Explorer: Roams habitats with a weight of <strong>{animal.characteristics[0].weight}</strong>{animal.characteristics[0].length ? (
+                                <li><u>Main Threat</u>: Faces its most significant threat from <strong>{animal.characteristics[0].biggest_threat}</strong>.</li>
+                                <li><u>Life Expectancy</u>: Typically lives an average of <strong>{animal.characteristics[0].lifespan}</strong>.</li>
+                                <li><u>Habitat Explorer</u>: Roams habitats with a weight of <strong>{animal.characteristics[0].weight}</strong>{animal.characteristics[0].length ? (
                                     <span>
                                          and a height of <strong>{animal.characteristics[0].length}</strong>
                                     </span>
                                 ) : (
                                     ""
                                 )}.</li>
-                                <li>Reproductive Maturity: Reaches sexual maturity around <strong>{animal.characteristics[0].age_of_sexual_maturity}</strong>.</li>
-                                <li>Growing Up: Undergoes the weaning process at <strong>{animal.characteristics[0].age_of_weaning}</strong>.</li>
+                                <li><u>Reproductive Maturity</u>: Reaches sexual maturity around <strong>{animal.characteristics[0].age_of_sexual_maturity}</strong>.</li>
+                                <li><u>Growing Up</u>: Undergoes the weaning process at <strong>{animal.characteristics[0].age_of_weaning}</strong>.</li>
                             </ul>
                             <p>
                                 The <em>{animal.name[1] ? `${animal.name[1]} (scientific name)` : animal.name[0]}</em> serves as a remarkable testament to the incredible diversity that the animal kingdom holds.

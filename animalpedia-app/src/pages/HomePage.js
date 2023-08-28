@@ -48,7 +48,7 @@ const HomePage = () => {
                 </div>
 
                 <div className="row mb-2 mt-2">
-                    <PreviewCard animalName={"okapi"} />
+                    <PreviewCard animalName={"gator"} />
                     <PreviewCard animalName={"tarsier"} />
                     <PreviewCard animalName={"tapir"} />
                 </div>
@@ -74,7 +74,7 @@ const HomePage = () => {
                             <WeatherWidget city={"larisa"} />
 
 
-                            <div className="m-3">
+                            {/* <div className="m-3">
                                 <div className="ratio ratio-16x9">
                                     <iframe
                                         src="https://www.youtube.com/embed/5kozt0uDa4c"
@@ -82,11 +82,11 @@ const HomePage = () => {
                                         allowFullScreen
                                     />
                                 </div>
-                            </div>
+                            </div> */}
 
-                            <div className='d-flex justify-content-start align-items-center rounded border border-dark p-2' style={{ background: "#C1E1C1" }} role='fan fuct'>
+                            <div className='d-flex align-items-center rounded border border-dark p-2 mt-3' style={{ background: "#C1E1C1" }}>
                                 <img src={factImage} alt="Random Trivia" />
-                                <p className='p-2 m-0'>{fact ? fact : "loading..."}.</p>
+                                <p className='p-2 m-0'>{fact ? fact : "loading..."}.</p>                            
                             </div>
 
                             <div className="p-3">

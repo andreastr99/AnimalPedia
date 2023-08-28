@@ -24,7 +24,7 @@ const Header = () => {
                     <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
                         <div className="input-group">
                             <input type="search" className="form-control form-control-dark text-bg-light" placeholder="Search an animal..." aria-label="Search" />
-                            <button className="input-group-text" id="search-icon">
+                            <button className="input-group-text" id="search-icon" aria-label="Search">
                                 <BiSearch />
                             </button>
                         </div>
