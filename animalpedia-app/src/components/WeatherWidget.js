@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { FaWind, FaTint, FaTemperatureLow } from 'react-icons/fa';
+import { FaWind, FaTint, FaTemperatureLow, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 
 import axiosRequests from '../api/apiCalls'
 
@@ -10,16 +10,36 @@ const WeatherWidget = ({ city }) => {
 
     const [loading, setLoading] = useState(true);
 
+    const getUsersLocation = (callback) => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((success, error) => {
+                if (error) {
+                    console.log("Unable to retrieve your location");
+                } else {
+                    const latitude = success.coords.latitude;
+                    const longitude = success.coords.longitude;
+                    callback({ latitude, longitude });
+                }
+            });
+        } else {
+            console.log("Geolocation not supported");
+        }
+    }
+
     useEffect(() => {
         const fetchData = async () => {
             try {
-                await axiosRequests.getForecast(city)
-                    .then(res => {
-                        setWeather(res.data);
-                    });
+                getUsersLocation(async (coordinates) => {
+                    const { latitude, longitude } = coordinates;                    
+                    const coords = coordinates ? latitude + "," + longitude : city;                
+                    await axiosRequests.getForecast(coords)
+                        .then(res => {
+                            setWeather(res.data);
+                        });
+                });
             } catch (error) {
                 console.error(error)
-            }finally{
+            } finally {
                 setLoading(false);
             }
         }
@@ -29,7 +49,7 @@ const WeatherWidget = ({ city }) => {
     return (
         <div className="container">
             <div className="row d-flex justify-content-center align-items-center">
-                <div className="card bg-body-tertiary" style={{ color: "#4B515D", borderRadius: "35px"}}>
+                <div className="card bg-body-tertiary" style={{ color: "#4B515D", borderRadius: "35px" }}>
                     <div className="card-body p-4">
                         {loading ? (
                             <div >
@@ -38,8 +58,8 @@ const WeatherWidget = ({ city }) => {
                         ) : (
                             <>
                                 <div className="d-flex">
-                                    <p className="flex-grow-1">{weather.name}</p>
-                                    <p>{weather.localtime}</p>
+                                    <p className="flex-grow-1"> {weather.name}  <FaMapMarkerAlt /></p>
+                                    <p>{weather.localtime} <FaClock /></p>
                                 </div>
 
                                 <div className="d-flex flex-column text-center mt-2 mb-2">

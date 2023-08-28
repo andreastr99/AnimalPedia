@@ -23,13 +23,13 @@ const HomePage = () => {
                 </div>
 
                 <div className="row mb-2 mt-2">
-                    <PreviewCard animalName={"hummingbird"} />
+                    <PreviewCard animalName={"okapi"} />
                     <PreviewCard animalName={"tarsier"} />
                     <PreviewCard animalName={"tapir"} />
                 </div>
 
                 
-                <main role="main" className="container">
+                <main role="main">
                     <div className="row">
                         <hr />
                         <div className="col-md-8 blog-main pt-3">
@@ -59,23 +59,23 @@ const HomePage = () => {
                                 </div>
                             </div>
 
-                            {/* <div className="p-3">
+                            <div className="p-3">
                                 <h4 className="font-italic">Archives</h4>
                                 <ol className="list-unstyled mb-0">
-                                    <li><a href="#">March 2014</a></li>
-                                    <li><a href="#">February 2014</a></li>
-                                    <li><a href="#">January 2014</a></li>
-                                    <li><a href="#">December 2013</a></li>
-                                    <li><a href="#">November 2013</a></li>
-                                    <li><a href="#">October 2013</a></li>
-                                    <li><a href="#">September 2013</a></li>
-                                    <li><a href="#">August 2013</a></li>
-                                    <li><a href="#">July 2013</a></li>
-                                    <li><a href="#">June 2013</a></li>
-                                    <li><a href="#">May 2013</a></li>
-                                    <li><a href="#">April 2013</a></li>
+                                    <li><a >March 2014</a></li>
+                                    <li><a >February 2014</a></li>
+                                    <li><a >January 2014</a></li>
+                                    <li><a >December 2013</a></li>
+                                    <li><a >November 2013</a></li>
+                                    <li><a >October 2013</a></li>
+                                    <li><a >September 2013</a></li>
+                                    <li><a >August 2013</a></li>
+                                    <li><a >July 2013</a></li>
+                                    <li><a >June 2013</a></li>
+                                    <li><a >May 2013</a></li>
+                                    <li><a >April 2013</a></li>
                                 </ol>
-                            </div>*/}
+                            </div>
 
                             <div className="p-3">
                                 <h4 className="font-italic">Elsewhere</h4>

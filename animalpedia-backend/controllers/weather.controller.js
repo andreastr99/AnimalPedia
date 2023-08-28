@@ -5,7 +5,6 @@ const redisClient = Redis.createClient();
 redisClient.connect();
 async function getForecast(req, res) {
     const city = req.params.city;
-
     let redisResult = await redisClient.get('weather')
     if (redisResult) {
         const results = JSON.parse(redisResult);
