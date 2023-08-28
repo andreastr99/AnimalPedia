@@ -18,7 +18,7 @@ const Header = () => {
                         <li><Link to="/" className="nav-link px-2 text-black">Home</Link></li>
                         <li><Link to="/favorites" className="nav-link px-2 text-black">Favorites</Link></li>
                         <li><Link to="/map" className="nav-link px-2 text-black">Map</Link></li>
-                        <li><Link to="/" className="nav-link px-2 text-black">About</Link></li>
+                        <li><Link to="/about" className="nav-link px-2 text-black">About</Link></li>
                     </ul>
 
                     <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">

@@ -7,7 +7,7 @@ import HomePage from './pages/HomePage'
 import PageNotFound from './pages/PageNotFound';
 import FavoritesPage from './pages/FavoritesPage'
 import MapPage from './pages/MapPage'
-
+import AboutPage from './pages/AboutPage';
 import './App.css';
 
 function App() {
@@ -17,6 +17,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/favorites" element={<FavoritesPage />} />
         <Route path="/map" element={<MapPage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path='*' element={<PageNotFound/>}/>
       </Routes>
     </Router>
