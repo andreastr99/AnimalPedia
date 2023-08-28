@@ -49,7 +49,7 @@ const WeatherWidget = ({ city }) => {
     return (
         <div className="container">
             <div className="row d-flex justify-content-center align-items-center">
-                <div className="card bg-body-tertiary" style={{ color: "#4B515D", borderRadius: "35px" }}>
+                <div className="card bg-body-tertiary" style={{ color: "#4B515D" }}>
                     <div className="card-body p-4">
                         {loading ? (
                             <div >

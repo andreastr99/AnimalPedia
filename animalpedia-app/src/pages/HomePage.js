@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -9,16 +9,39 @@ import NotificationMessage from '../components/NotificationMessage'
 
 import articles from './article-content'
 import forest from '../assets/forest.jpg'
+import factImage from '../assets/did-you-know.png'
 
+import axiosRequests from '../api/apiCalls'
 import { FaGithub, FaTwitter, FaFacebook } from 'react-icons/fa';
-
 const HomePage = () => {
+
+    const [fact, setFact] = useState('')
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                await axiosRequests.getFact()
+                    .then(res => {
+                        setFact(res.data)                        
+                    });
+
+            } catch (error) {
+                console.error(error);
+            } finally {
+                // setLoading(false);
+            }
+        }
+        fetchData();
+        
+    }, []);
+
     return (
         <div>
             <Header />
             <NotificationMessage />
             <div className='container mt-5 mb-2 custom-wide-container'>
-                <div className="jumbotron p-3 p-md-5 text-dark rounded" style={{ backgroundImage: `url(${forest})`, backgroundSize: 'cover', backgroundPosition: 'center', height: "350px" }}>
+                <div className="jumbotron p-3 p-md-5 text-dark rounded-top" style={{ backgroundImage: `url(${forest})`, backgroundSize: 'cover', backgroundPosition: 'center', height: "350px" }}>
                     <div className="col-md-8 px-0" >
                         <h1 className="display-4 font-italic"><em>Unveiling the Wonders of the Animal Kingdom</em></h1>
                     </div>
@@ -59,6 +82,11 @@ const HomePage = () => {
                                         allowFullScreen
                                     />
                                 </div>
+                            </div>
+
+                            <div className='d-flex justify-content-start align-items-center rounded border border-dark p-2' style={{ background: "#C1E1C1" }} role='fan fuct'>
+                                <img src={factImage} alt="Random Trivia" />
+                                <p className='p-2 m-0'>{fact ? fact : "loading..."}.</p>
                             </div>
 
                             <div className="p-3">
