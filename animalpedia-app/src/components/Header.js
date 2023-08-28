@@ -23,10 +23,10 @@ const Header = () => {
 
                     <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
                         <div className="input-group">
-                            <input type="search" className="form-control form-control-dark text-bg-light" placeholder="Search an animal..." aria-label="Search" disabled />
-                            <span className="input-group-text" id="search-icon">
+                            <input type="search" className="form-control form-control-dark text-bg-light" placeholder="Search an animal..." aria-label="Search" />
+                            <button className="input-group-text" id="search-icon">
                                 <BiSearch />
-                            </span>
+                            </button>
                         </div>
                     </form>
                     <button className="btn btn-danger" style={{ background: "#516360", border: "none" }}>

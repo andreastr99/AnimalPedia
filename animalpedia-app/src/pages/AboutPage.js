@@ -23,20 +23,20 @@ const AboutPage = () => {
                         <h2 className="mt-5">Our Team</h2>
                         <div className="row mt-3">
                             <div className="col-md-4">
-                                <img
+                                {/* <img
                                     src="path_to_image"
                                     alt="Team Member 1"
                                     className="img-fluid rounded-circle mb-2"
-                                />
+                                /> */}
                                 <h3>John Doe</h3>
                                 <p>Co-Founder &amp; CEO</p>
                             </div>
                             <div className="col-md-4">
-                                <img
+                                {/* <img
                                     src="path_to_image"
                                     alt="Team Member 2"
                                     className="img-fluid rounded-circle mb-2"
-                                />
+                                /> */}
                                 <h3>Jane Smith</h3>
                                 <p>Co-Founder &amp; CTO</p>
                             </div>

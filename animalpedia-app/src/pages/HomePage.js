@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import PreviewCard from '../components/PreviewCard'
 import BlogPost from '../components/BlogPost'
 import WeatherWidget from '../components/WeatherWidget'
+import NotificationMessage from '../components/NotificationMessage'
 
 import articles from './article-content'
 import forest from '../assets/forest.jpg'
@@ -15,6 +16,7 @@ const HomePage = () => {
     return (
         <div>
             <Header />
+            <NotificationMessage />
             <div className='container mt-5 mb-2 custom-wide-container'>
                 <div className="jumbotron p-3 p-md-5 text-dark rounded" style={{ backgroundImage: `url(${forest})`, backgroundSize: 'cover', backgroundPosition: 'center', height: "350px" }}>
                     <div className="col-md-8 px-0" >
@@ -28,7 +30,7 @@ const HomePage = () => {
                     <PreviewCard animalName={"tapir"} />
                 </div>
 
-                
+
                 <main role="main">
                     <div className="row">
                         <hr />
@@ -49,7 +51,7 @@ const HomePage = () => {
                             <WeatherWidget city={"larisa"} />
 
 
-                            <div className="m-3">                    
+                            <div className="m-3">
                                 <div className="ratio ratio-16x9">
                                     <iframe
                                         src="https://www.youtube.com/embed/5kozt0uDa4c"

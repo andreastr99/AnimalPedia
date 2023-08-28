@@ -4,14 +4,14 @@ import AnimalCardModal from '../components/AnimalCardModal'
 
 const PreviewCard = ({ animalName }) => {
 
-    const [showAddModal, setShowAddModal] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const handleShowModal = () => {
-        setShowAddModal(true);
+        setShowModal(true);
     };
 
     const handleCloseModal = () => {
-        setShowAddModal(false);
+        setShowModal(false);
     };
 
 
@@ -87,7 +87,7 @@ const PreviewCard = ({ animalName }) => {
                                 ))}
                             </p>
                             <button onClick={handleShowModal} className="btn btn-success btn-sm mt-auto">View Animal Card</button>
-                            <AnimalCardModal showModal={showAddModal} handleClose={handleCloseModal} animalImage={`${link}`} animal={animal}/>
+                            <AnimalCardModal showModal={showModal} handleClose={handleCloseModal} animalImage={`${link}`} animal={animal}/>
                         </div>
                         <img className='card' src={`${link}`} alt={animal.name} style={{  maxHeight: "200px", objectFit: "cover",  objectPosition: "center", width: "100%",}} />
                     </>
