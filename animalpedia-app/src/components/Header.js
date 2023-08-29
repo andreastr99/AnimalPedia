@@ -11,7 +11,7 @@ const Header = () => {
 
                     <Link to='/' className="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none">
                         <h1 style={{ fontFamily: "Papyrus", color: "green" }}>AnimalPedia</h1>
-                        <img src={koala} alt='koala'/>
+                        <img src={koala} alt='koala' />
                     </Link>
 
                     <ul className="nav nav-pills col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -29,7 +29,7 @@ const Header = () => {
                             </button>
                         </div>
                     </form>
-                    <button className="btn btn-danger" style={{ background: "#516360", border: "none" }}>
+                    <button className="btn text-light" style={{ background: "#516360", border: "none" }}>
                         {/* <BiLogOut /> Logout */}
                         <BiUser /> Sign Up
                     </button>
