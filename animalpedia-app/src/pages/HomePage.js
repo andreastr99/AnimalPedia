@@ -50,7 +50,7 @@ const HomePage = () => {
                 <div className="row mb-2 mt-2">
                     <PreviewCard animalName={"gator"} />
                     <PreviewCard animalName={"tarsier"} />
-                    <PreviewCard animalName={"tapir"} />
+                    <PreviewCard animalName={"marine iguana"} />
                 </div>
 
 
@@ -61,8 +61,9 @@ const HomePage = () => {
 
                             <BlogPost article={articles[0]} />
 
-                            <BlogPost article={articles[1]} />
+                            <BlogPost article={articles[2]} />
 
+                            <BlogPost article={articles[1]} />
                             {/* <nav className="blog-pagination">
                                 <a className="btn btn-outline-primary">Older</a>
                                 <a className="btn btn-outline-secondary disabled" >Newer</a>

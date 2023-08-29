@@ -69,7 +69,8 @@ const articles = [
         date: "October 31, 2015",
         title: "New feature",
         content: [
-            `  <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+            `  <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. 
+            Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
             <ul>
                 <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
                 <li>Donec id elit non mi porta gravida at eget metus.</li>
@@ -78,7 +79,29 @@ const articles = [
             <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
             <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>`
         ]
-    }
+    },
+    {
+        name: "second",
+        author: "Christos Ouzounis",
+        date: "August 29, 2023",
+        title: "Animal Classes",
+        content: [
+            `  <p>There are typically considered to be around 6 to 7 major classes of animals, depending on the classification system being used. These classes are based 
+            on shared characteristics and evolutionary relationships. The most commonly recognized animal classes are:</p>
+            <ol>
+                <li><strong>Mammals (Mammalia)</strong>: Animals with hair or fur, mammary glands that produce milk, and a unique jaw structure.</li>
+                <li><strong>Birds (Aves)</strong>: Warm-blooded animals with feathers, beaks, and lay hard-shelled eggs.</li>
+                <li><strong>Reptiles (Reptilia)</strong>: Cold-blooded animals with scales, typically laying eggs, and often having a bony skeleton.</li>
+                <li><strong>Amphibians (Amphibia)</strong>: Cold-blooded animals that typically start life in water with gills and metamorphose into adults with lungs and limbs.</li>
+                <li><strong>Fish (Pisces)</strong>: Cold-blooded animals with gills and typically living in water.</li>
+                <li><strong>Arachnids (Arachnida)</strong>: Eight-legged arthropods like spiders, scorpions, ticks, and mites.</li>
+                <li><strong>Insects (Insecta)</strong>: Six-legged arthropods with three main body parts (head, thorax, abdomen), such as ants, bees, butterflies, and beetles.</li>
+            </ol>
+
+            <p>Additionally, there are other smaller classes and groups, such as mollusks, annelids (segmented worms), echinoderms (like starfish), and more. 
+            The classification of animals can sometimes vary due to ongoing scientific research and changes in our understanding of evolutionary relationships.</p>`
+        ]
+    },
 ]
 
 export default articles;
