@@ -1,4 +1,5 @@
 const app = require('./app');
+const connect = require('./database/database')
 const dotenv = require('dotenv');
 
 
@@ -6,8 +7,7 @@ const dotenv = require('dotenv');
 dotenv.config({});
 const port = process.env.PORT;
 
-//δημιουργώ μια καινούργια σταθερά για τον σερβερ μου
-// const server = http.createServer(app);
+connect();
 
 //αφού δημιούργησα τον σερβερ μου τώρα πρέπει να του ορίσω
 //σε ποιά θύρα θα ακούει αυτός ο σερβερ

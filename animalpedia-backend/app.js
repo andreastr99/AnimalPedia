@@ -9,10 +9,6 @@ app.use(cors());
 //για να μπορούμε να ακούμε σε json format 
 app.use(express.json());
 
-
-// app.use(express.urlencoded({ extended: false }));
-
-
 //Define routes
 //έτσι κάνω εισαγωγή ένα route που μόλις όρισα
 const animalRoute = require('./routes/animal')
