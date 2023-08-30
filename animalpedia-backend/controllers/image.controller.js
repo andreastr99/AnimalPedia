@@ -17,7 +17,7 @@ async function getImage(req, res) {
                 .then(async response => {
                     
                     await redisClient.set(animalImage, JSON.stringify(response.data.hits[0].webformatURL));
-                    redisClient.expire(image, 3600);
+                    redisClient.expire(animalImage, 3600);
                     return res.status(200).json(response.data.hits[0].webformatURL)
                 })
 

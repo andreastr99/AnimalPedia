@@ -64,6 +64,7 @@ const HomePage = () => {
                             <BlogPost article={articles[2]} />
 
                             <BlogPost article={articles[1]} />
+                            
                             {/* <nav className="blog-pagination">
                                 <a className="btn btn-outline-primary">Older</a>
                                 <a className="btn btn-outline-secondary disabled" >Newer</a>
@@ -87,7 +88,7 @@ const HomePage = () => {
 
                             <div className='d-flex align-items-center rounded border border-dark p-2 mt-3' style={{ background: "#C1E1C1" }}>
                                 <img src={factImage} alt="Random Trivia" />
-                                <p className='p-2 m-0'>{fact ? fact : "loading..."}.</p>                            
+                                <p className='p-2 m-0'>{fact ? fact : "loading..."}</p>                            
                             </div>
 
                             <div className="p-3">
