@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import map from '../assets/map.png'
+import map from '../assets/wmap.png'
 
 import pin from '../assets/pin.png'
 const MapPage = () => {
@@ -29,12 +29,13 @@ const MapPage = () => {
                 <div className='d-flex justify-content-center'>
                     <img src={map} alt='world map' useMap='#worldmap' style={{ maxWidth: '100%', height: 'auto' }} />
                     <map name="worldmap">
-                        <area onClick={(e) => { e.preventDefault(); handleContinentClick('North America') }} alt="north-america" title="north-america" coords="14,96,71,84,98,94,144,86,154,54,202,24,257,8,302,0,543,6,568,20,552,75,527,103,481,118,449,157,434,212,412,242,382,264,378,309,371,341,325,364,263,376,45,289,1,201,-1,124" shape="poly" style={{ cursor: 'pointer' }} />
-                        <area onClick={(e) => { e.preventDefault(); handleContinentClick('South America') }} alt="south-america" title="south-america" coords="276,394,331,372,358,372,401,375,422,403,449,423,479,442,480,481,472,527,451,565,426,586,411,600,391,627,409,654,407,680,377,687,331,676,323,523,271,436" shape="poly" style={{ cursor: 'pointer' }} />
-                        <area onClick={(e) => { e.preventDefault(); handleContinentClick('Africa') }} alt="africa" title="africa" coords="551,304,585,280,617,270,638,274,665,285,680,291,710,291,723,304,731,332,740,354,754,367,760,380,783,382,794,393,791,422,819,535,800,551,745,581,704,595,665,588,543,414,523,356" shape="poly" style={{ cursor: 'pointer' }} />
-                        <area onClick={(e) => { e.preventDefault(); handleContinentClick('Oceania') }} alt="oceania" title="oceania" coords="978,480,1053,425,1134,428,1196,452,1273,484,1277,677,1050,681,974,558" shape="poly" style={{ cursor: 'pointer' }} />
-                        <area onClick={(e) => { e.preventDefault(); handleContinentClick('Europe') }} alt="europe" title="europe" coords="515,114,595,53,663,17,729,24,758,69,780,170,779,248,748,282,689,284,655,274,609,267,572,280" shape="poly" style={{ cursor: 'pointer' }} />
-                        <area onClick={(e) => { e.preventDefault(); handleContinentClick('Asia') }} alt="asia" title="asia" coords="755,15,1266,5,1275,382,1249,455,1129,407,1097,413,1051,419,1018,448,993,452,974,467,933,472,814,392,792,372,769,376,747,350,740,316,747,293,782,252,786,169" shape="poly" style={{ cursor: 'pointer' }} />
+                        <area onClick={(e) => { e.preventDefault(); handleContinentClick('North America') }} alt="North America" title="North America" coords="140,90,124,95,92,105,70,110,45,106,60,97,72,75,88,73,167,27,220,37,258,36,281,23,328,5,375,3,437,0,475,1,570,0,581,6,566,23,514,59,489,68,473,77,452,89,425,102,423,132,321,200,356,253,299,272,280,307,256,298,217,272,184,250,148,130" shape="poly" style={{ cursor: 'pointer' }} />
+                        <area onClick={(e) => { e.preventDefault(); handleContinentClick('South America') }} alt="South America" title="South America" coords="270,328,293,298,307,277,334,272,353,276,374,292,408,313,423,330,462,348,456,375,443,421,429,438,408,478,395,504,388,520,407,542,401,560,380,564,359,564,327,497" shape="poly" style={{ cursor: 'pointer' }} />
+                        <area onClick={(e) => { e.preventDefault(); handleContinentClick('Africa') }} alt="Africa" title="Africa" coords="538,188,522,217,513,260,516,287,540,314,568,323,590,323,606,339,615,369,622,396,624,434,635,473,665,484,760,443,782,382,764,350,771,280,744,285,728,256,715,217,690,190,642,183,602,172" shape="poly" style={{ cursor: 'pointer' }} />
+                        <area onClick={(e) => { e.preventDefault(); handleContinentClick('Oceania') }} alt="Oceania" title="Oceania" coords="1013,405,1031,390,1054,371,1070,364,1072,344,1072,321,1092,317,1117,330,1151,332,1199,355,1262,366,1278,398,1239,516,1153,552,1027,504,984,468,981,416" shape="poly" style={{ cursor: 'pointer' }} />
+                        <area onClick={(e) => { e.preventDefault(); handleContinentClick('Asia') }} alt="Asia" title="Asia" coords="706,148,687,161,690,177,701,197,721,222,728,243,735,261,751,274,769,270,794,254,816,240,834,238,839,268,855,295,914,340,975,365,1033,378,1065,356,1065,322,1074,272,1124,173,1183,127,1214,82,1190,30,1070,14,871,-1,807,17,785,91,782,127,780,152,780,179,751,184" shape="poly" style={{ cursor: 'pointer' }} />
+                        <area onClick={(e) => { e.preventDefault(); handleContinentClick('Antartica') }} alt="Antartica" title="Antartica" coords="247,665,223,659,200,651,201,639,220,630,255,627,288,620,331,614,379,610,413,587,440,588,444,605,459,625,490,627,525,617,670,592,746,592,846,588,921,587,990,589,1045,604,1057,639,1028,666" shape="poly" style={{ cursor: 'pointer' }} />
+                        <area onClick={(e) => { e.preventDefault(); handleContinentClick('Europe') }} alt="Europe" title="Europe" coords="550,45,520,66,536,133,547,181,572,176,599,165,626,174,649,179,685,185,685,167,690,152,703,140,721,152,735,165,751,176,767,174,776,167,778,131,780,102,785,72,792,54,801,7,724,-2,604,2" shape="poly" style={{ cursor: 'pointer' }} />
                     </map>
                 </div>
             </div>
