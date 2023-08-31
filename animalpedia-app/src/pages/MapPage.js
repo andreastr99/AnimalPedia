@@ -2,25 +2,52 @@ import React, { useState, useEffect } from 'react'
 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import map from '../assets/wmap.png'
 
+import axiosRequests from '../api/apiCalls'
+
+import map from '../assets/wmap.png'
 import pin from '../assets/pin.png'
+
 const MapPage = () => {
 
+    // ---------------------------------------------------
     const [selectedContinent, setSelectedContinent] = useState('')
 
     const handleContinentClick = (continent) => {
-        setSelectedContinent(prevData => ({ ...prevData, continent }))
+        // setSelectedContinent(prevData => ({ ...prevData, continent }))
+        setSelectedContinent(continent)
     };
 
+    // useEffect(() => {
+    //     console.log("Selected Continent:", selectedContinent);
+    // }, [selectedContinent]);
+    // ---------------------------------------------------
+
+    const [data, setData] = useState({});
     useEffect(() => {
-        console.log("Selected Continent:", selectedContinent);
+        const fetchData = async () => {
+            try {
+                await axiosRequests.getAnimalBy(selectedContinent)
+                    .then(res => {
+                        setData(res.data);
+                    });
+
+            } catch (error) {
+                console.error(error)
+            }
+        };
+
+        fetchData();
     }, [selectedContinent]);
+
+    useEffect(() => {
+        console.log("Animals:", data);
+    }, [data]);
 
     return (
         <>
             <Header />
-            <div style={{ fontFamily: "Lucida Handwriting" }}>
+            <div style={{ fontFamily: "Lucida Handwriting", height: "81vh"}}>
                 <div className='d-flex justify-content-center align-items-center mt-3'>
                     <h1 >World Map</h1>
                     <img src={pin} alt='pin' />
