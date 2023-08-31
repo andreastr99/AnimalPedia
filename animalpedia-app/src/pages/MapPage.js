@@ -11,25 +11,28 @@ import pin from '../assets/pin.png'
 const MapPage = () => {
 
     // ---------------------------------------------------
+    const [showModal, setShowModal] = useState(false);
+
+    const handleShowModal = () => {
+        setShowModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setAnimal({})
+        setShowModal(false);
+    };
+
+    // ---------------------------------------------------
     const [selectedContinent, setSelectedContinent] = useState('')
 
     const handleContinentClick = (continent) => {
         // setSelectedContinent(prevData => ({ ...prevData, continent }))
         setSelectedContinent(continent)
-    };
-
-    // useEffect(() => {
-    //     console.log("Selected Continent:", selectedContinent);
-    // }, [selectedContinent]);
-    // ---------------------------------------------------
-
-    const [data, setData] = useState({});
-    useEffect(() => {
         const fetchData = async () => {
             try {
-                await axiosRequests.getAnimalBy(selectedContinent)
+                await axiosRequests.getAnimalBy(continent)
                     .then(res => {
-                        setData(res.data);
+                        setAnimal(res.data);
                     });
 
             } catch (error) {
@@ -38,21 +41,67 @@ const MapPage = () => {
         };
 
         fetchData();
-    }, [selectedContinent]);
+        handleShowModal();
+    };
 
+    // useEffect(() => {
+    //     console.log("Selected Continent:", selectedContinent);
+    // }, [selectedContinent]);
+    // ---------------------------------------------------
+
+    const [animal, setAnimal] = useState({});
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         try {
+    //             await axiosRequests.getAnimalBy(selectedContinent)
+    //                 .then(res => {
+    //                     setAnimal(res.data);
+    //                 });
+
+    //         } catch (error) {
+    //             console.error(error)
+    //         }
+    //     };
+
+    //     fetchData();
+    // }, [selectedContinent]);
     useEffect(() => {
-        console.log("Animals:", data);
-    }, [data]);
+        console.log(animal);
+    }, [animal]);
 
     return (
         <>
             <Header />
-            <div style={{ fontFamily: "Lucida Handwriting", height: "81vh"}}>
-                <div className='d-flex justify-content-center align-items-center mt-3'>
+            {/* <div style={{ fontFamily: "Lucida Handwriting" }}>         */}
+            <div>
+                <div className='d-flex justify-content-center align-items-center mt-4 mb-3'>
                     <h1 >World Map</h1>
                     <img src={pin} alt='pin' />
                 </div>
                 <h6 className='d-flex justify-content-center' >Select a continent</h6>
+
+
+                <div className={`modal ${showModal ? 'show d-block' : ''}`} tabIndex="-1" role="dialog" id="modalSheet">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="exampleModalLongTitle">{selectedContinent}</h5>
+                                <button onClick={handleCloseModal} type="button" className="close" animal-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div className="modal-body">
+                                {animal[0] ? (animal.map((animal) => (
+                                    <div key={animal._id}><em> {animal.name.common}</em><hr /></div>
+                                ))) : null}
+                            </div>
+                            <div className="modal-footer">
+                                <button onClick={handleCloseModal} type="button" className="btn btn-secondary" animal-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div className='d-flex justify-content-center'>
                     <img src={map} alt='world map' useMap='#worldmap' style={{ maxWidth: '100%', height: 'auto' }} />
                     <map name="worldmap">
