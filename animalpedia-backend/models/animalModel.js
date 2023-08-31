@@ -3,10 +3,16 @@ const Schema = mongoose.Schema
 
 const animalScema = new Schema({
     name: {
-        type: String,
-        required: true
+        common: {
+            type: String,
+            required: true
+        },
+        scientific: {
+            type: String,
+            required: true
+        }
     },
-    classs: {
+    class: {
         type: String,
         required: true
     },
