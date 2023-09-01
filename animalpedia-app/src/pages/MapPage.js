@@ -8,11 +8,35 @@ import axiosRequests from '../api/apiCalls'
 import map from '../assets/wmap.png'
 import pin from '../assets/pin.png'
 
+import africa from '../assets/Africa.png'
+import asia from '../assets/asia.png'
+import oceania from '../assets/australia.png'
+import europe from '../assets/europe.png'
+import northAmerica from '../assets/north-america.png'
+import southAmerica from '../assets/south-america.png'
+import antartica from '../assets/antartica.png'
+
+import { RxHeartFilled } from 'react-icons/rx';
+import { RxHeart } from 'react-icons/rx';
+
+const continentImages = {
+    Africa: africa,
+    Asia: asia,
+    Oceania: oceania,
+    Europe: europe,
+    'North America': northAmerica,
+    'South America': southAmerica,
+    Antartica: antartica
+};
+
 const MapPage = () => {
 
     const [animal, setAnimal] = useState({});
     const [selectedContinent, setSelectedContinent] = useState('')
 
+    const imageSrc = continentImages[selectedContinent];
+
+    const [like, setLike] = useState(false)
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -36,10 +60,9 @@ const MapPage = () => {
     return (
         <>
             <Header />
-            {/* <div style={{ fontFamily: "Lucida Handwriting" }}>         */}
             <div>
                 <div className='d-flex justify-content-center align-items-center mt-4 mb-3'>
-                    <h1 >World Map</h1>
+                    <h1 style={{ fontFamily: "Lucida Handwriting" }} >World Map</h1>
                     <img src={pin} alt='pin' />
                 </div>
                 <h6 className='d-flex justify-content-center' >Select a continent</h6>
@@ -50,6 +73,7 @@ const MapPage = () => {
                             <div className="modal-content">
                                 <div className="modal-header">
                                     <h4 className="modal-title">{selectedContinent}</h4>
+                                    <img src={imageSrc} alt={selectedContinent} />
                                     <button type="button" className="close" data-dismiss="modal">&times;</button>
                                 </div>
                                 <div className="modal-body">
@@ -57,9 +81,14 @@ const MapPage = () => {
                                         animal
                                             .filter((animal) => animal.continent === selectedContinent)
                                             .map((animal) => (
-                                                <div className='d-flex flex-row border m-2 align-items-center' key={animal._id}>
-                                                    <div className=''><img src={pin} alt={animal.name.common} /></div>
-                                                    <div className='p-3'><em> {animal.name.common}</em></div>
+                                                <div className='d-flex rounded-1 m-2 p-2 align-items-center' key={animal._id} style={{ background: "#C1E1C1" }}>
+                                                    <div><img className='rounded-1' src={animal.image} alt={animal.name.common} style={{ maxHeight: "100px" }} /></div>
+                                                    <div className='pl-3'><em> {animal.name.common}</em></div>
+                                                    <div className='ml-auto'>
+                                                        <button className='btn' onClick={(e) => { e.preventDefault(); like ? setLike(false) : setLike(true) }} style={{ fontSize: '2.5rem'}}>
+                                                            {animal.favourite ? <RxHeartFilled className="text-danger" /> : <RxHeart className="text-secondary" />}
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             ))) : (
                                         <p>No animals available.</p>
