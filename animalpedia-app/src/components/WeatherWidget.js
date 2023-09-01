@@ -44,7 +44,7 @@ const WeatherWidget = ({ city }) => {
             }
         }
         fetchData();
-    }, []);
+    }, [city]);
 
     return (
         <div className="container">
@@ -63,7 +63,7 @@ const WeatherWidget = ({ city }) => {
                                 </div>
 
                                 <div className="d-flex flex-column text-center mt-2 mb-2">
-                                    <p className="display-4 mb-0 font-weight-bold" style={{ color: "#1C2331" }}>{weather.temp_c}°C </p>
+                                    <p className="display-4 mb-0" style={{ color: "#1C2331" }}>{weather.temp_c}°C </p>
                                     <span className="small" >{weather.text}</span>
                                 </div>
 
