@@ -4,23 +4,18 @@ const AnimalCardModal = ({ showModal = false, handleClose, animal, animalImage }
     return (
         <div className={`modal ${showModal ? 'show d-block' : ''}`} tabIndex="-1" role="dialog" id="modalSheet">
             <div className="modal modal-sheet position-static d-block p-4 py-md-5">
-                <div className="modal-dialog modal-lg" role="document">
+                <div className="modal-dialog" role="document">
                     <div className="modal-content rounded-4 shadow">
                         <div className="modal-header border-bottom-0">
                             <h1 className="modal-title fs-5">{animal.name[0]} <em>{animal.name[1] ? `(${animal.name[1]})` : ""}</em></h1>
                             <button type="button" onClick={handleClose} className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <img src={animalImage} alt={animal.name} />
+                        <img className='img-thumbnail' src={animalImage} alt={animal.name} />
 
                         <div className="m-3 border-bottom border-success">
-                            <p>
-                                <strong>Order:</strong> {animal.order}
-                            </p>
-                            <p>
-                                <strong>Class:</strong> {animal.class}
-                            </p>
-                            <p>
-                                <strong>Location:</strong>
+                            <p><strong>Order:</strong> {animal.order}</p>
+                            <p><strong>Class:</strong> {animal.class}</p>
+                            <p><strong>Location:</strong>
                                 {animal.locations.map((location, index) => (
                                     <span key={index}><em> {location}</em></span>
                                 ))}
@@ -37,7 +32,7 @@ const AnimalCardModal = ({ showModal = false, handleClose, animal, animalImage }
                                 <li><u>Life Expectancy</u>: Typically lives an average of <strong>{animal.characteristics[0].lifespan}</strong>.</li>
                                 <li><u>Habitat Explorer</u>: Roams habitats with a weight of <strong>{animal.characteristics[0].weight}</strong>{animal.characteristics[0].length ? (
                                     <span>
-                                         and a height of <strong>{animal.characteristics[0].length}</strong>
+                                        and a height of <strong>{animal.characteristics[0].length}</strong>
                                     </span>
                                 ) : (
                                     ""
@@ -51,10 +46,8 @@ const AnimalCardModal = ({ showModal = false, handleClose, animal, animalImage }
                         </div>
 
 
-                        <div className="modal-footer flex-column align-items-stretch w-100 gap-2 pt-0 border-top-0">
-                            <button type="button" onClick={handleClose} className="btn btn-lg btn-success" data-bs-dismiss="modal">
-                                Close
-                            </button>
+                        <div className="modal-footer">
+                            <button onClick={handleClose} type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>

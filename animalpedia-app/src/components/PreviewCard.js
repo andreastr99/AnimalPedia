@@ -60,21 +60,6 @@ const PreviewCard = ({ animalName }) => {
                     </div>
                 ) : (
                     <>
-                        {/* <div className="card-body d-flex flex-column align-items-start">
-                            <strong className="d-inline-block text-success mb-2">{taxonomy.class}</strong>
-                            <h4 className="mb-0">
-                                <a className="text-dark" href="/">{animal}</a>
-                            </h4>
-                            <div className="text-muted">{taxonomy.order}</div>
-                            <p className="card-text mb-auto"><strong>Can be found in:</strong>
-                                {locations.map((location, index) => (
-                                    <span key={index}><em> {location}</em></span>
-                                ))}
-                            </p>
-                            <a href="/" className="btn btn-success btn-sm mt-auto">View Animal Card</a>
-                        </div>
-                        <img className='card' src={`${link}`} alt='weather icon' style={{ height: "200px" }} /> */}
-
                         <div className="card-body d-flex flex-column align-items-start">
                             <strong className="d-inline-block mb-2" style={{ color: "#00704A" }}>{animal.class}</strong>
                             <h4 className="mb-0">
@@ -87,9 +72,9 @@ const PreviewCard = ({ animalName }) => {
                                 ))}
                             </p>
                             <button onClick={handleShowModal} className="btn btn-success btn-sm mt-auto">View Animal Card</button>
-                            <AnimalCardModal showModal={showModal} handleClose={handleCloseModal} animalImage={`${link}`} animal={animal}/>
+                            <AnimalCardModal showModal={showModal} handleClose={handleCloseModal} animalImage={`${link}`} animal={animal} />
                         </div>
-                        <img className='card' src={`${link}`} alt={animal.name} style={{  maxHeight: "200px", objectFit: "cover",  objectPosition: "center", width: "100%",}} />
+                        <img className='img-thumbnail ' src={`${link}`} alt={animal.name} style={{ maxHeight: "200px", objectFit: "cover", objectPosition: "center", width: "100%", }} />
                     </>
                 )}
             </div>
