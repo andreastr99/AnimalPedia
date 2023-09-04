@@ -8,6 +8,8 @@ import PageNotFound from './pages/PageNotFound';
 import FavoritesPage from './pages/FavoritesPage'
 import MapPage from './pages/MapPage'
 import AboutPage from './pages/AboutPage';
+import AnimalPage from './pages/AnimalPage';
+
 import './App.css';
 
 function App() {
@@ -19,6 +21,7 @@ function App() {
         <Route path="/map" element={<MapPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path='*' element={<PageNotFound/>}/>
+        <Route path='animal/:animalId' element={<AnimalPage/>}/>
       </Routes>
     </Router>
   );

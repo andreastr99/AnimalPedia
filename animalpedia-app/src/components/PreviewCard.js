@@ -17,8 +17,8 @@ const PreviewCard = ({ animalName }) => {
 
     // const [animal, setAnimal] = useState();
     const [animal, setAnimal] = useState({});
-    const [taxonomy, setTaxonomy] = useState({});
-    const [locations, setLocations] = useState([]);
+    // const [taxonomy, setTaxonomy] = useState({});
+    // const [locations, setLocations] = useState([]);
     // const [characteristics, setCharacteristics] = useState({});
 
     const [loading, setLoading] = useState(true);
@@ -27,7 +27,7 @@ const PreviewCard = ({ animalName }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                await axiosRequests.getAnimal(animalName)
+                await axiosRequests.getAPIAnimal(animalName)
                     .then(res => {
                         setAnimal(res.data)
 
@@ -48,7 +48,7 @@ const PreviewCard = ({ animalName }) => {
             }
         }
         fetchData();
-    }, []);
+    }, [animalName]);
 
 
     return (

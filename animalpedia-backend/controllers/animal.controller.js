@@ -1,3 +1,4 @@
+const { response } = require('express');
 const AnimalModel = require('../models/animalModel')
 
 function getAllAnimals(req, res) {
@@ -11,29 +12,44 @@ function getAllAnimals(req, res) {
         })
 }
 
-function show(req, res) {
-    // Define a query object to filter by continent if provided
-    const showBy = req.params.showBy;
+// function show(req, res) {
+//     // Define a query object to filter by continent if provided
+//     const showBy = req.params.showBy;
 
-    const query = {};
+//     const query = {};
 
-    // Add filters based on the provided parameter
-    if (showBy) {
-        query.$or = [
-            { "name.common": showBy },
-            { "class": showBy },
-            { "continent": showBy }
-        ];
-    }
+//     // Add filters based on the provided parameter
+//     if (showBy) {
+//         query.$or = [
+//             { "name.common": showBy },
+//             { "class": showBy },
+//             { "continent": showBy }
+//         ];
+//     }
 
-    AnimalModel.find(query).then(response => {
-        res.status(200).json(response)
+//     AnimalModel.find(query).then(response => {
+//         res.status(200).json(response)
+//     })
+//         .catch(error => {
+//             res.status(500).json({
+//                 message: "Error retrieving data!"
+//             })
+//         })
+// }
+
+function getAnimal(req, res) {
+
+    const animalID = req.params.animalID;
+
+    AnimalModel.findById(animalID)
+    .then(response => {
+        res.json(response)
     })
-        .catch(error => {
-            res.status(500).json({
-                message: "Error retrieving data!"
-            })
+    .catch(error =>{
+        res.json({
+            message: "Error while trying to get an animal!"
         })
+    })
 }
 
 
@@ -82,7 +98,7 @@ function setLike(req, res) {
 
 module.exports = {
     getAllAnimals: getAllAnimals,
-    show: show,
+    getAnimal: getAnimal,
     addAnimal: addAnimal,
     setLike: setLike,
 }

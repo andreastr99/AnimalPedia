@@ -91,7 +91,7 @@ const HomePage = () => {
                                 <p className='p-2 m-0'>{fact ? fact : "loading..."}</p>                            
                             </div>
 
-                            <div className="p-3">
+                            {/* <div className="p-3">
                                 <h4 className="font-italic">Archives</h4>
                                 <ol className="list-unstyled mb-0">
                                     <li><a >March 2014</a></li>
@@ -107,7 +107,7 @@ const HomePage = () => {
                                     <li><a >May 2013</a></li>
                                     <li><a >April 2013</a></li>
                                 </ol>
-                            </div>
+                            </div> */}
 
                             <div className="p-3">
                                 <h4 className="font-italic">Elsewhere</h4>
