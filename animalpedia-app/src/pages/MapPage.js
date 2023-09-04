@@ -31,12 +31,46 @@ const continentImages = {
 
 const MapPage = () => {
 
+    const handleAnimalLike = (animalId, like) => {
+        const updatedLike = !like;
+
+        const updateLike = async () => {
+            try {
+                await axiosRequests.setLike(animalId, updatedLike)
+                    .then(res => {
+                        console.log(res.data);
+                    });
+
+            } catch (error) {
+                console.error(error)
+            }
+        };
+
+        updateLike();
+
+        setAnimal(prevData => 
+            prevData.map(animal => {
+                if (animal._id === animalId) {
+                    // If this is the animal to update, create a new object with the updated like value.
+                    return {
+                        ...animal,
+                        favourite: updatedLike,
+                    };
+                } else {
+                    // For other animals, leave them unchanged.
+                    return animal;
+                }
+            })
+        );
+    }
+
+
+
     const [animal, setAnimal] = useState({});
     const [selectedContinent, setSelectedContinent] = useState('')
 
     const imageSrc = continentImages[selectedContinent];
 
-    const [like, setLike] = useState(false)
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -52,10 +86,6 @@ const MapPage = () => {
 
         fetchData();
     }, []);
-
-    // useEffect(() => {
-    //     console.log(animal);
-    // }, [animal]);
 
     return (
         <>
@@ -85,7 +115,7 @@ const MapPage = () => {
                                                     <div><img className='rounded-1' src={animal.image} alt={animal.name.common} style={{ maxHeight: "100px" }} /></div>
                                                     <div className='pl-3'><em> {animal.name.common}</em></div>
                                                     <div className='ml-auto'>
-                                                        <button className='btn' onClick={(e) => { e.preventDefault(); like ? setLike(false) : setLike(true) }} style={{ fontSize: '2.5rem'}}>
+                                                        <button name='like' className='btn' onClick={(e) => handleAnimalLike(animal._id, animal.favourite)} style={{ fontSize: '2.5rem' }}>
                                                             {animal.favourite ? <RxHeartFilled className="text-danger" /> : <RxHeart className="text-secondary" />}
                                                         </button>
                                                     </div>

@@ -1,4 +1,3 @@
-
 const AnimalModel = require('../models/animalModel')
 
 function getAllAnimals(req, res) {
@@ -64,8 +63,26 @@ function addAnimal(req, res) {
         })
 }
 
+function setLike(req, res) {
+    const animalId =  req.params.animalID;
+    
+    const like = req.body.favourite;
+    AnimalModel.findByIdAndUpdate(animalId, {$set: {favourite: like}})
+    .then(response => {
+        res.status(200).json({
+            message: "Record Updated Successfully!"
+        })
+    })
+    .catch(error => {
+        res.json({
+            message: "An error occured while trying to update favourites"
+        })
+    })
+}
+
 module.exports = {
     getAllAnimals: getAllAnimals,
     show: show,
     addAnimal: addAnimal,
+    setLike: setLike,
 }
