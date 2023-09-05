@@ -8,8 +8,8 @@ import WeatherWidget from '../components/WeatherWidget'
 import NotificationMessage from '../components/NotificationMessage'
 
 import articles from './article-content'
-import forest from '../assets/forest.jpg'
-import factImage from '../assets/did-you-know.png'
+import forest from '../assets/images/forest.jpg'
+import factImage from '../assets/icons/did-you-know.png'
 
 import axiosRequests from '../api/apiCalls'
 import { FaGithub, FaTwitter, FaFacebook } from 'react-icons/fa';

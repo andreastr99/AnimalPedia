@@ -1,7 +1,7 @@
 import React from 'react'
 import { BiSearch, BiLogOut, BiUser } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
-import koala from '../assets/koala.png'
+import koala from '../assets/icons/koala.png'
 
 const Header = () => {
     return (

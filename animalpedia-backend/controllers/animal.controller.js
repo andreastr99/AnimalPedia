@@ -1,4 +1,3 @@
-const { response } = require('express');
 const AnimalModel = require('../models/animalModel')
 
 function getAllAnimals(req, res) {
@@ -54,14 +53,14 @@ function getAnimal(req, res) {
 
 
 function addAnimal(req, res) {
-    const { name, classs, continent, details, youtbeLink, favourite, image } = req.body;
+    const { name, classs, continent, details, youtube, favourite, image } = req.body;
 
     let animal = new AnimalModel({
         name: name,
         classs: classs,
         continent: continent,
         details: details,
-        youtbeLink: youtbeLink,
+        youtube: youtube,
         favourite: favourite,
         image: image
     })

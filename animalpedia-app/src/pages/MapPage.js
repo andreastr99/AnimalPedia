@@ -6,21 +6,21 @@ import Footer from '../components/Footer'
 
 import axiosRequests from '../api/apiCalls'
 
-import map from '../assets/wmap.png'
-import pin from '../assets/pin.png'
+import map from '../assets/images/wmap.png'
+import pin from '../assets/icons/pin.png'
 
-import africa from '../assets/Africa.png'
-import asia from '../assets/asia.png'
-import oceania from '../assets/australia.png'
-import europe from '../assets/europe.png'
-import northAmerica from '../assets/north-america.png'
-import southAmerica from '../assets/south-america.png'
-import antartica from '../assets/antartica.png'
+import africa from '../assets/icons/Africa.png'
+import asia from '../assets/icons/asia.png'
+import oceania from '../assets/icons/australia.png'
+import europe from '../assets/icons/europe.png'
+import northAmerica from '../assets/icons/north-america.png'
+import southAmerica from '../assets/icons/south-america.png'
+import antartica from '../assets/icons/antartica.png'
 
 import { RxHeartFilled } from 'react-icons/rx';
 import { RxHeart } from 'react-icons/rx';
 
-const continentImages = {
+const continentIcons = {
     Africa: africa,
     Asia: asia,
     Oceania: oceania,
@@ -78,7 +78,7 @@ const MapPage = () => {
     const [animal, setAnimal] = useState({});
     const [selectedContinent, setSelectedContinent] = useState('')
 
-    const imageSrc = continentImages[selectedContinent];
+    const imageSrc = continentIcons[selectedContinent];
 
     useEffect(() => {
         const fetchData = async () => {
@@ -99,7 +99,7 @@ const MapPage = () => {
     return (
         <>
             <Header />
-            <div>
+            <div style={{height: "82vh"}}>
                 <div className='d-flex justify-content-center align-items-center mt-4 mb-3'>
                     <h1 style={{ fontFamily: "Lucida Handwriting" }} >World Map</h1>
                     <img src={pin} alt='pin' />
@@ -125,7 +125,7 @@ const MapPage = () => {
                                                     <div><img className='rounded-1' src={animal.image} alt={animal.name.common} style={{ maxHeight: "100px" }} /></div>
                                                     <Link onClick={handleCloseModal} to={`/animal/${animal._id}`} className='pl-3 text-dark' style={{ textDecoration: "none" }}><em> {animal.name.common}</em></Link>
                                                     <div className='ml-auto'>
-                                                        <button name='like' className='btn' onClick={(e) => handleAnimalLike(animal._id, animal.favourite)} style={{ fontSize: '2.5rem' }}>
+                                                        <button name='like' onClick={(e) => handleAnimalLike(animal._id, animal.favourite)} style={{ fontSize: '2.5rem', background: 'none', border: 'none' }}>
                                                             {animal.favourite ? <RxHeartFilled className="text-danger" /> : <RxHeart className="text-secondary" />}
                                                         </button>
                                                     </div>
@@ -146,7 +146,7 @@ const MapPage = () => {
                     </div>
                 </div>
 
-                <div className='d-flex justify-content-center'>
+                <div className='d-flex justify-content-center mt-3'>
                     <img src={map} alt='world map' useMap='#worldmap' style={{ maxWidth: '100%', height: 'auto' }} />
                     <map name="worldmap">
                         <area onClick={(e) => { e.preventDefault(); setSelectedContinent('North America'); handleShowModal() }} alt="North America" title="North America" coords="140,90,124,95,92,105,70,110,45,106,60,97,72,75,88,73,167,27,220,37,258,36,281,23,328,5,375,3,437,0,475,1,570,0,581,6,566,23,514,59,489,68,473,77,452,89,425,102,423,132,321,200,356,253,299,272,280,307,256,298,217,272,184,250,148,130" shape="poly" style={{ cursor: 'pointer' }} />

@@ -24,7 +24,7 @@ const animalScema = new Schema({
         type: String,
         required: true
     },
-    youtbeLink: String,
+    youtube: String,
     favourite: {
         type: Boolean,
         default: false
