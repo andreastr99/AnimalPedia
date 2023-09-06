@@ -95,9 +95,21 @@ function setLike(req, res) {
     })
 }
 
+function getFavourites (req, res) {
+    AnimalModel.find({favourite: true}).then(response => {
+        res.status(200).json(response)
+    })
+        .catch(error => {
+            res.status(500).json({
+                message: "Error while trying to retrieve all favourite animals"
+            })
+        })
+}
+
 module.exports = {
     getAllAnimals: getAllAnimals,
     getAnimal: getAnimal,
     addAnimal: addAnimal,
     setLike: setLike,
+    getFavourites: getFavourites,
 }

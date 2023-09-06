@@ -25,7 +25,7 @@ async function getAnimal(req, res) {
                 ],
                 class: response.data[0].taxonomy.class,
                 order: response.data[0].taxonomy.order,
-                locations: response.data[0].locations,
+                continent: response.data[0].locations,
                 characteristics: [{
                     lifespan: response.data[0].characteristics.lifespan,
                     weight: response.data[0].characteristics.weight,

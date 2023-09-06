@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
+//components
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 import axiosRequests from '../api/apiCalls'
 
+//images
 import map from '../assets/images/wmap.png'
-import pin from '../assets/icons/pin.png'
 
+//icons
+import pin from '../assets/icons/pin.png'
 import africa from '../assets/icons/Africa.png'
 import asia from '../assets/icons/asia.png'
 import oceania from '../assets/icons/australia.png'
@@ -16,7 +19,6 @@ import europe from '../assets/icons/europe.png'
 import northAmerica from '../assets/icons/north-america.png'
 import southAmerica from '../assets/icons/south-america.png'
 import antartica from '../assets/icons/antartica.png'
-
 import { RxHeartFilled } from 'react-icons/rx';
 import { RxHeart } from 'react-icons/rx';
 

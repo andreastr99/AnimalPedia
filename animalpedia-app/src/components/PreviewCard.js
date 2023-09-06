@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import axiosRequests from '../api/apiCalls'
+import { Link } from 'react-router-dom'
+
+//components
 import AnimalCardModal from '../components/AnimalCardModal'
 
-const PreviewCard = ({ animalName }) => {
+import axiosRequests from '../api/apiCalls'
+
+const PreviewCard = ({ animalName = null, favouriteAnimal = null }) => {
 
     const [showModal, setShowModal] = useState(false);
 
@@ -14,12 +18,7 @@ const PreviewCard = ({ animalName }) => {
         setShowModal(false);
     };
 
-
-    // const [animal, setAnimal] = useState();
     const [animal, setAnimal] = useState({});
-    // const [taxonomy, setTaxonomy] = useState({});
-    // const [locations, setLocations] = useState([]);
-    // const [characteristics, setCharacteristics] = useState({});
 
     const [loading, setLoading] = useState(true);
 
@@ -29,12 +28,7 @@ const PreviewCard = ({ animalName }) => {
             try {
                 await axiosRequests.getAPIAnimal(animalName)
                     .then(res => {
-                        setAnimal(res.data)
-
-                        // console.log(animal)
-                        // setLocations(res.data.locations);
-                        // setTaxonomy(res.data.taxonomy);
-                        // setCharacteristics(res.data.characteristics);
+                        setAnimal(res.data);
                     });
 
                 await axiosRequests.getImage(animalName)
@@ -47,10 +41,19 @@ const PreviewCard = ({ animalName }) => {
                 setLoading(false);
             }
         }
-        fetchData();
+
+        if (animalName) {
+            fetchData();
+        }
     }, [animalName]);
 
-
+    // Effect to update animal state when favouriteAnimal changes
+    useEffect(() => {
+        if (favouriteAnimal) {
+            setAnimal(favouriteAnimal);
+            setLoading(false); // Mark loading as complete
+        }
+    }, [favouriteAnimal]);
     return (
         <div className="col-md-4">
             <div className="card flex-md-row mb-4 bshadow-sm h-md-250" style={{ background: "#f2f1eb" }}>
@@ -63,18 +66,33 @@ const PreviewCard = ({ animalName }) => {
                         <div className="card-body d-flex flex-column align-items-start">
                             <strong className="d-inline-block mb-2" style={{ color: "#00704A" }}>{animal.class}</strong>
                             <h4 className="mb-0">
-                                <a className="text-dark" href="/">{animal.name[0]}</a>
+                                <u className="text-dark">{animalName ? animal.name[0] : animal.name.common}</u>
                             </h4>
-                            <div className="text-muted">{animal.order}</div>
-                            <p className="card-text mb-auto"><strong>Can be found in:</strong>
-                                {animal.locations.map((location, index) => (
-                                    <span key={index}><em> {location}</em></span>
-                                ))}
+                            <div className="text-muted">{animalName ? animal.order : ""}</div>
+                            <p className="card-text mb-auto"><strong>Can be found in: </strong>
+                                {animalName ? (
+                                    animal.continent.map((continent, index) => (
+                                        <span key={index}><em> {continent}</em></span>
+                                    ))
+                                ) : (
+                                    animal.continent
+                                )}
+
                             </p>
-                            <button onClick={handleShowModal} className="btn btn-success btn-sm mt-auto">View Animal Card</button>
-                            <AnimalCardModal showModal={showModal} handleClose={handleCloseModal} animalImage={`${link}`} animal={animal} />
+                            {animalName ? (
+                                <>
+                                    <button onClick={handleShowModal} className="btn btn-success btn-sm mt-auto">View Animal Card</button>
+                                    <AnimalCardModal showModal={showModal} handleClose={handleCloseModal} animalImage={`${link}`} animal={animal} />
+                                </>
+                            ) : (
+                                <button className="btn btn-success btn-sm mt-auto">
+                                    <Link to={`/animal/${animal._id}`} style={{ textDecoration: "none", color: "white" }}> View Animal Card</Link>
+                                </button>
+                            )}
+
+
                         </div>
-                        <img className='img-thumbnail ' src={`${link}`} alt={animal.name} style={{ maxHeight: "200px", objectFit: "cover", objectPosition: "center", width: "100%", }} />
+                        <img className='img-thumbnail ' src={animalName ? link : animal.image} alt={animalName ? animal.name : animal.name.common} style={animalName ? { maxHeight: "180px" } : { maxHeight: "150px" }} />
                     </>
                 )}
             </div>

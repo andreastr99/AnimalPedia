@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
+//components
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import PreviewCard from '../components/PreviewCard'
@@ -7,12 +8,17 @@ import BlogPost from '../components/BlogPost'
 import WeatherWidget from '../components/WeatherWidget'
 import NotificationMessage from '../components/NotificationMessage'
 
+import axiosRequests from '../api/apiCalls'
+
 import articles from './article-content'
+
+//images
 import forest from '../assets/images/forest.jpg'
 import factImage from '../assets/icons/did-you-know.png'
 
-import axiosRequests from '../api/apiCalls'
+//icons
 import { FaGithub, FaTwitter, FaFacebook } from 'react-icons/fa';
+
 const HomePage = () => {
 
     const [fact, setFact] = useState('')

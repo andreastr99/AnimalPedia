@@ -16,7 +16,7 @@ const AnimalCardModal = ({ showModal = false, handleClose, animal, animalImage }
                             <p><strong>Order:</strong> {animal.order}</p>
                             <p><strong>Class:</strong> {animal.class}</p>
                             <p><strong>Location:</strong>
-                                {animal.locations.map((location, index) => (
+                                {animal.continent.map((location, index) => (
                                     <span key={index}><em> {location}</em></span>
                                 ))}
                             </p>

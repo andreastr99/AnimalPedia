@@ -121,7 +121,7 @@ const AnimalPage = () => {
                                         </ul>
                                     </div>
 
-                                    <div className='col-md-6 card' style={{ background: "none", border: "none" }}> <img src={imageSrc} /></div>
+                                    <div className='col-md-6 card' style={{ background: "none", border: "none" }}> <img src={imageSrc} alt={animal.continent} /></div>
 
                                 </div>
                             </div>
@@ -133,7 +133,7 @@ const AnimalPage = () => {
                         </div>
                         <hr />
                         <div className='d-flex justify-content-center mb-3'>
-                            <a href={animal.youtube} target="_blank">
+                            <a href={animal.youtube} target="_blank" rel='noreferrer'>
                                 <img src={youtube} alt='youtube icon' />
                             </a>
                             <button onClick={() => handleAnimalLike(animal._id, animal.favourite)} style={{ background: 'none', border: 'none' }}>

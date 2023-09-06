@@ -9,6 +9,7 @@ const axiosRequests = {
   getAllAnimals: () => axios.get('http://localhost:8081/api/animal/'),
   getAnimalById: (animalId) => axios.get(`http://localhost:8081/api/animal/${animalId}`),
   setLike: (animalId, like) => axios.put(`http://localhost:8081/api/animal/${animalId}`, { favourite: like }),
+  getFavourites: () => axios.get('http://localhost:8081/api/animal/get-favourites'),
 };
 
 export default axiosRequests;
