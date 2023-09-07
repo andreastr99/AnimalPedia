@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
+//components
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 import axiosRequests from '../api/apiCalls'
-
-//icons
-import youtube from '../assets/icons/youtube.png'
-import { RxHeartFilled } from 'react-icons/rx';
-import { RxHeart } from 'react-icons/rx';
-import back from '../assets/icons/back.png'
 
 //images
 import northAmerica from '../assets/images/north-america.png'
@@ -20,6 +15,12 @@ import africa from '../assets/images/africa.png'
 import oceania from '../assets/images/oceania.png'
 import asia from '../assets/images/asia.png'
 import antartica from '../assets/images/antartica.png'
+
+//icons
+import youtube from '../assets/icons/youtube.png'
+import { RxHeartFilled } from 'react-icons/rx';
+import { RxHeart } from 'react-icons/rx';
+import back from '../assets/icons/back.png'
 
 
 const continentImages = {
