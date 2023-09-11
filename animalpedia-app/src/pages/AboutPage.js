@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 import { FaGithub } from 'react-icons/fa';
 
 //components
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const AboutPage = () => {
     return (
@@ -14,11 +14,11 @@ const AboutPage = () => {
                     <div className="col-lg-8 offset-lg-2">
                         <h1 className="mb-4">About Us</h1>
                         <p>
-                            Welcome to our website! We are a dedicated team of individuals passionate 
+                            Welcome to our website! We are a dedicated team of individuals passionate
                             about [describe your website's purpose or mission].
                         </p>
                         <p>
-                            Our mission is to [describe your mission or goals]. Through [briefly explain 
+                            Our mission is to [describe your mission or goals]. Through [briefly explain
                             how your website or service achieves its mission].
                         </p>
                         <h2 className="mt-5">Our Team</h2>
@@ -45,7 +45,7 @@ const AboutPage = () => {
                         </div>
                         <h2 className="mt-5">Our Story</h2>
                         <p>
-                            [Provide a brief history of your organization, including how and why it was founded. 
+                            [Provide a brief history of your organization, including how and why it was founded.
                             Highlight important milestones and achievements.]
                         </p>
                         <h2 className="mt-5">Contact Us</h2>

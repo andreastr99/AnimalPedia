@@ -1,24 +1,25 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 //components
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
-import axiosRequests from '../api/apiCalls'
+import axiosRequests from '../api/apiCalls';
+import { useAuth } from '../auth/AuthContext';
 
 //images
-import map from '../assets/images/wmap.png'
+import map from '../assets/images/wmap.png';
 
 //icons
-import pin from '../assets/icons/pin.png'
-import africa from '../assets/icons/Africa.png'
-import asia from '../assets/icons/asia.png'
-import oceania from '../assets/icons/australia.png'
-import europe from '../assets/icons/europe.png'
-import northAmerica from '../assets/icons/north-america.png'
-import southAmerica from '../assets/icons/south-america.png'
-import antartica from '../assets/icons/antartica.png'
+import pin from '../assets/icons/pin.png';
+import africa from '../assets/icons/Africa.png';
+import asia from '../assets/icons/asia.png';
+import oceania from '../assets/icons/australia.png';
+import europe from '../assets/icons/europe.png';
+import northAmerica from '../assets/icons/north-america.png';
+import southAmerica from '../assets/icons/south-america.png';
+import antartica from '../assets/icons/antartica.png';
 import { RxHeartFilled } from 'react-icons/rx';
 import { RxHeart } from 'react-icons/rx';
 
@@ -42,7 +43,7 @@ const MapPage = () => {
     const handleCloseModal = () => {
         setShowModal(false);
     };
-    
+
     const handleAnimalLike = (animalId, like) => {
         const updatedLike = !like;
 
@@ -78,8 +79,8 @@ const MapPage = () => {
 
 
     const [animal, setAnimal] = useState({});
-    const [selectedContinent, setSelectedContinent] = useState('')
-
+    const [selectedContinent, setSelectedContinent] = useState();
+    const { isLoggedIn } = useAuth();
     const imageSrc = continentIcons[selectedContinent];
 
     useEffect(() => {
@@ -87,7 +88,14 @@ const MapPage = () => {
             try {
                 await axiosRequests.getAllAnimals()
                     .then(res => {
-                        setAnimal(res.data);
+                        const transformedData = res.data.map(animal => ({
+                            _id: animal._id,
+                            name: animal.name.common,
+                            continent: animal.continent,
+                            favourite: animal.favourite,
+                            image: animal.image
+                        }));
+                        setAnimal(transformedData);
                     });
 
             } catch (error) {
@@ -101,7 +109,7 @@ const MapPage = () => {
     return (
         <>
             <Header />
-            <div style={{height: "82vh"}}>
+            <div style={{ height: "82vh" }}>
                 <div className='d-flex justify-content-center align-items-center mt-4 mb-3'>
                     <h1 style={{ fontFamily: "Lucida Handwriting" }} >World Map</h1>
                     <img src={pin} alt='pin' />
@@ -124,12 +132,15 @@ const MapPage = () => {
                                             .filter((animal) => animal.continent === selectedContinent)
                                             .map((animal) => (
                                                 <div className='d-flex rounded-1 m-2 p-2 align-items-center' key={animal._id} style={{ background: "#C1E1C1" }}>
-                                                    <div><img className='rounded-1' src={animal.image} alt={animal.name.common} style={{ maxHeight: "100px" }} /></div>
-                                                    <Link onClick={handleCloseModal} to={`/animal/${animal._id}`} className='pl-3 text-dark' style={{ textDecoration: "none" }}><em> {animal.name.common}</em></Link>
+                                                    <div><img className='rounded-1' src={animal.image} alt={animal.name} style={{ maxHeight: "100px" }} /></div>
+                                                    <Link onClick={handleCloseModal} to={`/animal/${animal._id}`} className='pl-3 text-dark' style={{ textDecoration: "none" }}><em> {animal.name}</em></Link>
                                                     <div className='ml-auto'>
-                                                        <button name='like' onClick={(e) => handleAnimalLike(animal._id, animal.favourite)} style={{ fontSize: '2.5rem', background: 'none', border: 'none' }}>
-                                                            {animal.favourite ? <RxHeartFilled className="text-danger" /> : <RxHeart className="text-secondary" />}
-                                                        </button>
+                                                        {isLoggedIn ? (
+                                                            <button name='like' onClick={(e) => handleAnimalLike(animal._id, animal.favourite)} style={{ fontSize: '2.5rem', background: 'none', border: 'none' }}>
+                                                                {animal.favourite ? <RxHeartFilled className="text-danger" style={{ fontSize: '3rem' }} /> : <RxHeart className="text-secondary" style={{ fontSize: '3rem' }} />}
+                                                            </button>
+                                                        ) : ""
+                                                        }
                                                     </div>
                                                 </div>
 

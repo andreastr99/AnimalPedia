@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import beach from '../assets/images/jungle.jpg'
+import beach from '../assets/images/jungle.jpg';
 
 const PageNotFound = () => {
   return (

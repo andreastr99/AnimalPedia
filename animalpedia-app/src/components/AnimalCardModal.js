@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const AnimalCardModal = ({ showModal = false, handleClose, animal, animalImage }) => {
     return (

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 //components
-import AnimalCardModal from '../components/AnimalCardModal'
+import AnimalCardModal from '../components/AnimalCardModal';
 
-import axiosRequests from '../api/apiCalls'
+import axiosRequests from '../api/apiCalls';
 
 const PreviewCard = ({ animalName = null, favouriteAnimal = null }) => {
 

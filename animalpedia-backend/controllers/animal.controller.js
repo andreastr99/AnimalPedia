@@ -2,10 +2,10 @@ const AnimalModel = require('../models/animalModel')
 
 function getAllAnimals(req, res) {
     AnimalModel.find().then(response => {
-        res.status(200).json(response)
+        return res.status(200).json(response)
     })
         .catch(error => {
-            res.status(500).json({
+            return res.status(500).json({
                 message: "Error retrieving all data!"
             })
         })
@@ -41,14 +41,14 @@ function getAnimal(req, res) {
     const animalID = req.params.animalID;
 
     AnimalModel.findById(animalID)
-    .then(response => {
-        res.json(response)
-    })
-    .catch(error =>{
-        res.json({
-            message: "Error while trying to get an animal!"
+        .then(response => {
+            return res.json(response)
         })
-    })
+        .catch(error => {
+            return res.json({
+                message: "Error while trying to get an animal!"
+            })
+        })
 }
 
 
@@ -66,41 +66,41 @@ function addAnimal(req, res) {
     })
 
     animal.save().then(response => {
-        res.status(200).json({
+        return res.status(200).json({
             message: "Animal added successfully!"
         })
     })
         .catch(error => {
             console.error(error)
-            res.status(500).json({
+            return res.status(500).json({
                 message: "An error occured!"
             })
         })
 }
 
 function setLike(req, res) {
-    const animalId =  req.params.animalID;
-    
+    const animalId = req.params.animalID;
+
     const like = req.body.favourite;
-    AnimalModel.findByIdAndUpdate(animalId, {$set: {favourite: like}})
-    .then(response => {
-        res.status(200).json({
-            message: "Record Updated Successfully!"
+    AnimalModel.findByIdAndUpdate(animalId, { $set: { favourite: like } })
+        .then(response => {
+            return res.status(200).json({
+                message: "Record Updated Successfully!"
+            })
         })
-    })
-    .catch(error => {
-        res.json({
-            message: "An error occured while trying to update favourites"
+        .catch(error => {
+            return res.json({
+                message: "An error occured while trying to update favourites"
+            })
         })
-    })
 }
 
-function getFavourites (req, res) {
-    AnimalModel.find({favourite: true}).then(response => {
-        res.status(200).json(response)
+function getFavourites(req, res) {
+    AnimalModel.find({ favourite: true }).then(response => {
+        return res.status(200).json(response)
     })
         .catch(error => {
-            res.status(500).json({
+            return res.status(500).json({
                 message: "Error while trying to retrieve all favourite animals"
             })
         })

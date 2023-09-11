@@ -1,26 +1,27 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 
 //components
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
-import axiosRequests from '../api/apiCalls'
+import axiosRequests from '../api/apiCalls';
+import { useAuth } from '../auth/AuthContext';
 
 //images
-import northAmerica from '../assets/images/north-america.png'
-import southAmerica from '../assets/images/south-america.png'
-import europe from '../assets/images/europe.png'
-import africa from '../assets/images/africa.png'
-import oceania from '../assets/images/oceania.png'
-import asia from '../assets/images/asia.png'
-import antartica from '../assets/images/antartica.png'
+import northAmerica from '../assets/images/north-america.png';
+import southAmerica from '../assets/images/south-america.png';
+import europe from '../assets/images/europe.png';
+import africa from '../assets/images/africa.png';
+import oceania from '../assets/images/oceania.png';
+import asia from '../assets/images/asia.png';
+import antartica from '../assets/images/antartica.png';
 
 //icons
-import youtube from '../assets/icons/youtube.png'
+import youtube from '../assets/icons/youtube.png';
 import { RxHeartFilled } from 'react-icons/rx';
 import { RxHeart } from 'react-icons/rx';
-import back from '../assets/icons/back.png'
+import back from '../assets/icons/back.png';
 
 
 const continentImages = {
@@ -35,7 +36,7 @@ const continentImages = {
 
 const AnimalPage = () => {
     const { animalId } = useParams();
-
+    const { isLoggedIn } = useAuth();
     const [animal, setAnimal] = useState('')
     const [loading, setLoading] = useState(true);
     const [selectedContinent, setSelectedContinent] = useState('');
@@ -137,9 +138,13 @@ const AnimalPage = () => {
                             <a href={animal.youtube} target="_blank" rel='noreferrer'>
                                 <img src={youtube} alt='youtube icon' />
                             </a>
-                            <button onClick={() => handleAnimalLike(animal._id, animal.favourite)} style={{ background: 'none', border: 'none' }}>
-                                {animal.favourite ? <RxHeartFilled className="text-danger" style={{ fontSize: '3rem' }} /> : <RxHeart className="text-secondary" style={{ fontSize: '3rem' }} />}
-                            </button>
+                            {isLoggedIn ? (
+                                <button onClick={() => handleAnimalLike(animal._id, animal.favourite)} style={{ background: 'none', border: 'none' }}>
+                                    {animal.favourite ? <RxHeartFilled className="text-danger" style={{ fontSize: '3rem' }} /> : <RxHeart className="text-secondary" style={{ fontSize: '3rem' }} />}
+                                </button>
+                            ) : ""
+                            }
+
                         </div>
                     </div>
                 </div>

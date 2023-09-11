@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 
 //components
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import PreviewCard from '../components/PreviewCard'
-import BlogPost from '../components/BlogPost'
-import WeatherWidget from '../components/WeatherWidget'
-import NotificationMessage from '../components/NotificationMessage'
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import PreviewCard from '../components/PreviewCard';
+import BlogPost from '../components/BlogPost';
+import WeatherWidget from '../components/WeatherWidget';
+import NotificationMessage from '../components/NotificationMessage';
 
-import axiosRequests from '../api/apiCalls'
+import axiosRequests from '../api/apiCalls';
 
-import articles from './article-content'
+import articles from './article-content';
 
 //images
-import forest from '../assets/images/forest.jpg'
-import factImage from '../assets/icons/did-you-know.png'
+import forest from '../assets/images/forest.jpg';
+import factImage from '../assets/icons/did-you-know.png';
 
 //icons
 import { FaGithub, FaTwitter, FaFacebook } from 'react-icons/fa';
@@ -29,7 +29,7 @@ const HomePage = () => {
             try {
                 await axiosRequests.getFact()
                     .then(res => {
-                        setFact(res.data)                        
+                        setFact(res.data)
                     });
 
             } catch (error) {
@@ -39,7 +39,7 @@ const HomePage = () => {
             }
         }
         fetchData();
-        
+
     }, []);
 
     return (
@@ -70,7 +70,7 @@ const HomePage = () => {
                             <BlogPost article={articles[2]} />
 
                             <BlogPost article={articles[1]} />
-                            
+
                             {/* <nav className="blog-pagination">
                                 <a className="btn btn-outline-primary">Older</a>
                                 <a className="btn btn-outline-secondary disabled" >Newer</a>
@@ -94,7 +94,7 @@ const HomePage = () => {
 
                             <div className='d-flex align-items-center rounded border border-dark p-2 mt-3' style={{ background: "#C1E1C1" }}>
                                 <img src={factImage} alt="Random Trivia" />
-                                <p className='p-2 m-0'>{fact ? fact : "loading..."}</p>                            
+                                <p className='p-2 m-0'>{fact ? fact : "loading..."}</p>
                             </div>
 
                             {/* <div className="p-3">

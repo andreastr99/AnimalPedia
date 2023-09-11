@@ -1,31 +1,19 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const jsonwebtoken = require('jsonwebtoken');
+const cookieParser = require("cookie-parser");
 
+const corsOptions = {
+  origin: "http://localhost:3000",
+  credentials: true,
+};
 
 //όποτε έχω μια κλήση API δεν θα το μπλοκάρει και να μπορούμε να το ακούσουμε στο backend
-app.use(cors());
+app.use(cors(corsOptions));
 //για να μπορούμε να ακούμε σε json format 
 app.use(express.json());
-
-
-//JWT setup
-app.use((req, res, next) => {
-  if (req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0] === 'JWT') {
-    jsonwebtoken.verify(req.headers.authorization.split(' ')[1], process.env.SECRET_KEY, (error, decode) => {
-      if (error) {
-        //we make sure that we don't pass data back if we don't need to
-        req.user = undefined;
-      }
-      req.user = decode;
-      next();
-    });
-  } else {
-    req.user = undefined;
-    next();
-  }
-})
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
 
 //Define routes
 //έτσι κάνω εισαγωγή ένα route που μόλις όρισα

@@ -19,10 +19,10 @@ const userSchema = new Schema({
 })
 
 //add method to user's schema to compare the given and the stored passwords
-userSchema.methods.comparePassword = (password, hashpassword) =>{
+userSchema.methods.comparePassword = (password, hashpassword) => {
     //compare the password that is given as an argument
     //and the hashpassword. Makes sure that they are decrypting while
-    //comparing and if match the user can login
+    // comparing and if match the user can login
     return bcryptjs.compare(password, hashpassword);
 }
 

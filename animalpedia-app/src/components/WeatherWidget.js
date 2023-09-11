@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { FaWind, FaTint, FaTemperatureLow, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 
-import axiosRequests from '../api/apiCalls'
-
-
+import axiosRequests from '../api/apiCalls';
 
 const WeatherWidget = ({ city }) => {
     const [weather, setWeather] = useState({});
@@ -30,8 +28,8 @@ const WeatherWidget = ({ city }) => {
         const fetchData = async () => {
             try {
                 getUsersLocation(async (coordinates) => {
-                    const { latitude, longitude } = coordinates;                    
-                    const coords = coordinates ? latitude + "," + longitude : city;                
+                    const { latitude, longitude } = coordinates;
+                    const coords = coordinates ? latitude + "," + longitude : city;
                     await axiosRequests.getForecast(coords)
                         .then(res => {
                             setWeather(res.data);
