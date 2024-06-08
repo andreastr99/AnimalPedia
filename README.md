@@ -35,5 +35,3 @@ AnimalPedia is your virtual gateway to the captivating realm of animals that inh
 Embark on an extraordinary journey through the animal kingdom by engaging with AnimalPedia. Whether you're a casual explorer or a dedicated researcher, our web app provides a rich and enlightening experience.
 
 Visit AnimalPedia today and celebrate the beauty, complexity, and splendor of life on Earth!
-
-\[Explore Now\]\(link_to_web_app\)
